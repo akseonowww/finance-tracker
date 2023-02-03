@@ -1,0 +1,83 @@
+.Profile {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.Buttons,
+.Buttons button {
+	width: 100%;
+	text-align: center;
+}
+
+.User {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.User__Block {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+.Avatar {
+	height: 52px;
+	width: 52px;
+	border-radius: 100px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #ebecef;
+}
+
+.Avatar i {
+	font-size: 50px;
+	color: #646c87;
+}
+
+.Notification {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: #ebecef;
+	color: #646c87;
+	border-radius: 7px;
+	width: 28px;
+	height: 28px;
+}
+
+.Accounts {
+	display: flex;
+	gap: 6px;
+}
+
+.Accounts__Item {
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	padding: 6px 8px;
+	border-radius: 10px;
+	/* figma */
+	/* width: 72px; 
+	height: 48px; */
+	/* my */
+	width: 100%;
+	height: 64px;
+	color: #ffffff;
+}
+
+.Accounts__Item strong {
+	font-weight: 600;
+	font-size: 16px;
+	color: #fcfcfd;
+	display: block;
+}
+
+.Accounts__Item small {
+	font-weight: 400;
+	font-size: 12px;
+	opacity: 0.6;
+}

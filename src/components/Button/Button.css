@@ -1,0 +1,14 @@
+@import url(../../index.css);
+
+.Button {
+	height: 44px;
+	padding: 12px;
+	background: var(--primary-color);
+	border: none;
+	border-radius: 12px;
+	color: var(--color-white-1);
+	font-size: 16px;
+	font-weight: 600px;
+   min-width: 240px;
+   cursor: pointer;
+}
