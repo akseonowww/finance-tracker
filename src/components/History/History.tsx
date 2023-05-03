@@ -1,24 +1,17 @@
 import {
-	Button,
-	Input,
-	InputAdornment,
 	List,
 	ListItem,
 	ListItemIcon,
 	ListItemText,
 	Paper,
 	Stack,
-	SwipeableDrawer,
-	TextField,
 	Typography,
 } from '@mui/material';
 import { blue, blueGrey } from '@mui/material/colors';
-import React from 'react';
-import { BsHeartHalf, BsSearch } from 'react-icons/bs';
+import { BsHeartHalf } from 'react-icons/bs';
 import { currencyFormat } from '../../Functions';
 
 const History = () => {
-	// const [open, setOpen] = React.useState(false);
 	const data = [
 		{
 			cash: 9000,
@@ -58,16 +51,11 @@ const History = () => {
 		},
 	];
 	return (
-		// <SwipeableDrawer
-		// 	className="History"
-		// 	onClose={() => console.log('Close')}
-		// 	onOpen={() => console.log('Close')}
-		// >
 		<Paper variant="big">
 			<Stack
 				direction={'row'}
 				sx={{ alignItems: 'center', justifyContent: 'space-between' }}
-			>
+			>	
 				<Typography variant="headlineMini" gutterBottom>
 					History
 				</Typography>
@@ -112,8 +100,8 @@ const History = () => {
 								}
 							/>
 							<Typography variant="bodyMedium">
-							{currencyFormat(el.cash, 'ru')}
-						</Typography>
+								{currencyFormat(el.cash, 'ru')}
+							</Typography>
 						</ListItem>
 					);
 				})}

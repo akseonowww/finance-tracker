@@ -3,20 +3,15 @@ import {
 	Button,
 	Typography,
 	IconButton,
-	List,
-	ListItem,
-	ListItemButton,
-	ListItemIcon,
-	ListItemText,
-	Divider,
 	Drawer,
 	Avatar,
 	AppBar,
 	Badge,
 	Box,
 } from '@mui/material';
-import { BsBell, BsInbox, BsMailbox, BsSearch } from 'react-icons/bs';
+import { BsBell, BsSearch } from 'react-icons/bs';
 import { grey } from '@mui/material/colors';
+import Setting from '../Page/Settings/Settings';
 
 type Anchor = 'bottom';
 
@@ -81,35 +76,7 @@ const Header = () => {
 					open={state['bottom']}
 					onClose={toggleDrawer('bottom', false)}
 				>
-					<Box role="presentation">
-						<List>
-							{['Inbox', 'Starred', 'Send email', 'Drafts'].map(
-								(text, index) => (
-									<ListItem key={text} disablePadding>
-										<ListItemButton>
-											<ListItemIcon>
-												{index % 2 === 0 ? <BsInbox /> : <BsMailbox />}
-											</ListItemIcon>
-											<ListItemText primary={text} />
-										</ListItemButton>
-									</ListItem>
-								)
-							)}
-						</List>
-						<Divider />
-						<List>
-							{['All mail', 'Trash', 'Spam'].map((text, index) => (
-								<ListItem key={text} disablePadding>
-									<ListItemButton>
-										<ListItemIcon>
-											{index % 2 === 0 ? <BsInbox /> : <BsMailbox />}
-										</ListItemIcon>
-										<ListItemText primary={text} />
-									</ListItemButton>
-								</ListItem>
-							))}
-						</List>
-					</Box>
+					<Setting />
 				</Drawer>
 			</Box>
 			<div>
@@ -117,7 +84,7 @@ const Header = () => {
 					<BsSearch />
 				</IconButton>
 				<IconButton>
-					<Badge badgeContent={2} color="primary">
+					<Badge badgeContent={2} color="primary" variant="dot">
 						<BsBell />
 					</Badge>
 				</IconButton>

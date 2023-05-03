@@ -1,4 +1,5 @@
-import { blue, blueGrey, grey, red } from '@mui/material/colors';
+import '@mui/x-date-pickers/themeAugmentation';
+import { blue, red } from '@mui/material/colors';
 import shadows from '@mui/material/styles/shadows';
 
 declare module '@mui/material/styles' {
@@ -41,6 +42,14 @@ declare module '@mui/material/styles' {
 		big: React.CSSProperties;
 		min: React.CSSProperties;
 	}
+
+	interface SelectVariants {
+		big: React.CSSProperties;
+	}
+
+	interface SelectVariantsOptions {
+		big: React.CSSProperties;
+	}
 }
 
 declare module '@mui/material/Typography' {
@@ -78,15 +87,15 @@ declare module '@mui/material/Paper' {
 	}
 }
 
-declare module '@mui/material/Button' {
-	interface ButtonPropsVariantOverrides {
-		dashed: true;
+declare module '@mui/material/Select' {
+	interface SelectPropsVariantOverrides {
+		big: true;
 	}
 }
 
 export const ThemeFT = {
 	typography: {
-		fontFamily: 'Inter, Arial, sans-serif',
+		fontFamily: 'Inter, Arial, sans-serif !important',
 		headline: {
 			fontFamily: 'Inter, Arial, sans-serif',
 			fontWeight: 600,
@@ -233,9 +242,7 @@ export const ThemeFT = {
 						padding: '16px 18px 6px',
 						boxShadow:
 							' 0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24, 39, 75, 0.1)',
-						// boxShadow: shadows[15],
 						borderRadius: '22px',
-						// background: grey[50],
 					},
 				},
 				{
@@ -245,6 +252,23 @@ export const ThemeFT = {
 					},
 				},
 			],
+		},
+		MuiSelect: {
+			variants: [
+				{
+					props: { variant: 'big' },
+					style: {
+						border: `4px dashed ${red[500]}`,
+					},
+				},
+			],
+		},
+		MuiDatePicker: {
+			styleOverrides: {
+				root: {
+					backgroundColor: 'red',
+				},
+			},
 		},
 	},
 };

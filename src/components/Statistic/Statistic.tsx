@@ -36,13 +36,13 @@ const Statistic = () => {
 			precent: 0,
 		},
 	];
-	let dataCash: number = 0;
+	let dataash: number = 0;
 
 	data.map((el: any) => {
-		dataCash += el.cash;
+		return dataash += el.cash;
 	});
 	data.map((el: any) => {
-		el.precent = Math.floor(el.cash / (dataCash / 100));
+		return el.precent = Math.floor(el.cash / (dataash / 100));
 	});
 
 	const miniChart = (arr: any) => {

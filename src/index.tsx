@@ -17,6 +17,7 @@ const theme = createTheme(ThemeFT as any);
 
 root.render(
 	<React.StrictMode>
+		{/* <Browser */}
 		<ThemeProvider theme={theme}>
 			<App />
 		</ThemeProvider>
