@@ -11,17 +11,27 @@ import {
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { blue } from '@mui/material/colors';
-import { LocalizationProvider, DatePicker } from '@mui/x-date-pickers';
+import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import dayjs from 'dayjs';
+import 'dayjs/locale/ru';
+import { NumericFormat } from 'react-number-format';
+import { useState } from 'react';
 
 const NewExpenses = () => {
+	const [cash, setCash] = useState(0);
+	const [date, setDate] = useState(dayjs(new Date()));
+	console.log(date.format('D MMMM YYYY'));
+
 	return (
 		<Container sx={{ p: '12px 16px' }}>
 			<Typography variant="headline" sx={{ marginBottom: '6px' }}>
 				New expenses
 			</Typography>
+
 			<Grid container direction="column" gap="16px">
+				{/* Category */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
 						Category
@@ -40,30 +50,50 @@ const NewExpenses = () => {
 						</Select>
 					</FormControl>
 				</Grid>
+
+				{/* Date */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
 						Date
 					</Typography>
 					<Typography variant="body">
-						<TextField type="date" fullWidth />
-						<LocalizationProvider dateAdapter={AdapterDayjs} fullWidth={true}>
-							<DatePicker defaultValue={() => dayjs('2022-04-17')} />
+						<LocalizationProvider
+							dateAdapter={AdapterDayjs}
+							adapterLocale="ru"
+							sx={{ width: '100%' }}
+						>
+							<MobileDatePicker
+								defaultValue={dayjs('2022-04-17')}
+								views={['day', 'month', 'year']}
+								sx={{ width: '100%' }}
+								format="D MMMM YYYY"
+							/>
 						</LocalizationProvider>
 					</Typography>
 				</Grid>
+
+				{/* Amount */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
 						Amount
 					</Typography>
 					<Typography variant="body">
-						<TextField
+						<NumericFormat
 							fullWidth={true}
-							type="number"
-							inputProps={{ step: 0 }}
-							placeholder="0"
+							// value={0}
+							// onChange={(el: any) => setCash(el)}
+							placeholder="0 ₽"
+							customInput={TextField}
+							allowNegative={false}
+							decimalScale={0}
+							thousandsGroupStyle="thousand"
+							thousandSeparator=" "
+							suffix={' ₽'}
 						/>
 					</Typography>
 				</Grid>
+
+				{/* Description */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
 						Description
@@ -81,6 +111,8 @@ const NewExpenses = () => {
 					</Typography>
 				</Grid>
 			</Grid>
+
+			{/* Buttons */}
 			<Grid
 				container
 				direction="column"
@@ -93,8 +125,8 @@ const NewExpenses = () => {
 					</Button>
 				</Grid>
 				<Grid item>
-					<Link to="/">
-						<Button fullWidth sx={{ color: blue[400], textDecoration: 'auto' }}>
+					<Link to="/" style={{ textDecoration: 'none' }}>
+						<Button variant="text" fullWidth sx={{ color: blue[400] }}>
 							Cancel
 						</Button>
 					</Link>

@@ -1,4 +1,3 @@
-import '@mui/x-date-pickers/themeAugmentation';
 import { blue, red } from '@mui/material/colors';
 import shadows from '@mui/material/styles/shadows';
 
@@ -193,34 +192,40 @@ export const ThemeFT = {
 					headline: 'h1',
 					headlineMini: 'h2',
 					title: 'h3',
-					body: 'p',
-					bodyMedium: 'p',
-					bodyBold: 'p',
+					body: 'span',
+					bodyMedium: 'span',
+					bodyBold: 'span',
 					footnote: 'span',
 					footnoteMedium: 'span',
 					footnoteBold: 'span',
-					caption: 'small',
-					captionMedium: 'small',
-					captionBold: 'small',
+					caption: 'span',
+					captionMedium: 'span',
+					captionBold: 'span',
 				},
 			},
 		},
 		MuiButton: {
-			variants: [
-				{
-					props: { variant: 'dashed' },
-					style: {
-						textTransform: 'none',
-						border: `2px dashed ${blue[500]}`,
-					},
-				},
-				{
-					props: { variant: 'dashed', color: 'secondary' },
-					style: {
-						border: `4px dashed ${red[500]}`,
-					},
-				},
-			],
+			styleOverrides: {
+				root: ({ ownerState }: any) => ({
+					...((ownerState.variant === 'contained' &&
+						ownerState.color === 'primary' && {
+							backgroundColor: '#0190F8',
+							color: '#F4F8FB',
+							boxShadow: 'none',
+							textTransform: 'none',
+							borderRadius: '12px',
+							padding: '12px 16px ',
+						}) ||
+						(ownerState.variant === 'text' &&
+							ownerState.color === 'primary' && {
+								color: '#0190F8',
+								boxShadow: 'none',
+								textTransform: 'none',
+								borderRadius: '12px',
+								padding: '8px 16px ',
+							})),
+				}),
+			},
 		},
 		MuiInput: {
 			variants: [
@@ -248,7 +253,10 @@ export const ThemeFT = {
 				{
 					props: { variant: 'min' },
 					style: {
-						border: `4px dashed ${red[500]}`,
+						padding: '16px 0 4px',
+						boxShadow:
+							' 0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24, 39, 75, 0.1)',
+						borderRadius: '16px',
 					},
 				},
 			],
@@ -266,7 +274,7 @@ export const ThemeFT = {
 		MuiDatePicker: {
 			styleOverrides: {
 				root: {
-					backgroundColor: 'red',
+					// backgroundColor: 'red',
 				},
 			},
 		},

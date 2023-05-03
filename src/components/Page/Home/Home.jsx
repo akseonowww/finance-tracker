@@ -7,7 +7,10 @@ import { Link } from 'react-router-dom';
 
 const Home = () => {
 	return (
-		<Container disableGutters sx={{ background: '#E4E8EB' }}>
+		<Container
+			disableGutters
+			sx={{ background: '#E4E8EB', minHeight: '100vh' }}
+		>
 			<Header />
 			<Box>
 				<Box sx={{ textAlign: 'center', p: '0' }}>

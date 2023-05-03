@@ -55,7 +55,7 @@ const History = () => {
 			<Stack
 				direction={'row'}
 				sx={{ alignItems: 'center', justifyContent: 'space-between' }}
-			>	
+			>
 				<Typography variant="headlineMini" gutterBottom>
 					History
 				</Typography>
@@ -67,9 +67,9 @@ const History = () => {
 				</Typography>
 			</Stack>
 			<List sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-				{data.map((el) => {
+				{data.map((el, index) => {
 					return (
-						<ListItem sx={{ p: 0, gap: '12px' }}>
+						<ListItem key={index} sx={{ p: 0, gap: '12px' }}>
 							<ListItemIcon
 								sx={{
 									background: blue[50],
@@ -106,19 +106,7 @@ const History = () => {
 					);
 				})}
 			</List>
-
-			{/* <Input
-				id="input-search"
-				placeholder={'Search'}
-				startAdornment={
-					<InputAdornment position="start">
-						<BsSearch />
-					</InputAdornment>
-				}
-			/>
-			<Button>Filter</Button> */}
 		</Paper>
-		// </SwipeableDrawer>
 	);
 };
 

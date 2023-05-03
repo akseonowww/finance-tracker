@@ -48,7 +48,10 @@ const Header = () => {
 			}}
 		>
 			<Box>
-				<Button sx={{ p: 0 }} onClick={toggleDrawer('bottom', true)}>
+				<Button
+					sx={{ p: '0 12px 0 0', borderRadius: '100px' }}
+					onClick={toggleDrawer('bottom', true)}
+				>
 					<Box
 						sx={{
 							display: 'flex',
@@ -76,10 +79,10 @@ const Header = () => {
 					open={state['bottom']}
 					onClose={toggleDrawer('bottom', false)}
 				>
-					<Setting />
+					<Setting title={false} />
 				</Drawer>
 			</Box>
-			<div>
+			<Box>
 				<IconButton>
 					<BsSearch />
 				</IconButton>
@@ -88,7 +91,7 @@ const Header = () => {
 						<BsBell />
 					</Badge>
 				</IconButton>
-			</div>
+			</Box>
 		</AppBar>
 	);
 };
