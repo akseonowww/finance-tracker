@@ -1,7 +1,18 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Setting from './components/Page/Settings/Settings';
-import NewExpenses from './components/Page/NewExpenses/NewExpenses';
-import Home from './components/Page/Home/Home';
+import Setting from './page/Settings/Settings';
+import NewExpenses from './page/NewExpenses/NewExpenses';
+import Home from './page/Home/Home';
+
+export const currencyFormat = (num: number, format: 'ru' | 'en') => {
+	switch (format) {
+		case 'ru':
+			return num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ') + ' ₽';
+		case 'en':
+			return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+		default:
+			return '$' + num.toFixed(0).replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+	}
+};
 
 const App = () => {
 	return (

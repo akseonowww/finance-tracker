@@ -7,6 +7,7 @@ import {
 	Typography,
 	TextField,
 	Button,
+	Chip,
 	// TextareaAutosize,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -18,11 +19,12 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 import { NumericFormat } from 'react-number-format';
 import { useState } from 'react';
+import { BsHeartHalf } from 'react-icons/bs';
 
 const NewExpenses = () => {
 	const [cash, setCash] = useState(0);
-	const [date, setDate] = useState(dayjs(new Date()));
-	console.log(date.format('D MMMM YYYY'));
+	const [selectedDate, setSelectedDate] = useState(dayjs(new Date()));
+	console.log(dayjs(new Date()));
 
 	return (
 		<Container sx={{ p: '12px 16px' }}>
@@ -36,19 +38,40 @@ const NewExpenses = () => {
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
 						Category
 					</Typography>
-					<FormControl fullWidth={true}>
-						<Select defaultValue="health">
-							<MenuItem value="health">
-								<Typography variant="body">Health</Typography>
-							</MenuItem>
-							<MenuItem value="clothes">
-								<Typography variant="body">Clothes</Typography>
-							</MenuItem>
-							<MenuItem value="eating-out">
-								<Typography variant="body">Eating out</Typography>
-							</MenuItem>
-						</Select>
-					</FormControl>
+					{/* <FormControl fullWidth={true}> */}
+					<Select defaultValue="health" fullWidth={true}>
+						<MenuItem value="health">
+							<BsHeartHalf />
+							<Typography
+								variant="body"
+								sx={{ margin: '0 0 0 8px', width: '100%' }}
+							>
+								Health
+							</Typography>
+							<Chip label="Everyday" />
+						</MenuItem>
+						<MenuItem value="clothes">
+							<BsHeartHalf />
+							<Typography
+								variant="body"
+								sx={{ margin: '0 0 0 8px', width: '100%' }}
+							>
+								Clothes
+							</Typography>
+							<Chip label="Everyday" />
+						</MenuItem>
+						<MenuItem value="eating-out">
+							<BsHeartHalf />
+							<Typography
+								variant="body"
+								sx={{ margin: '0 0 0 8px', width: '100%' }}
+							>
+								Eating out
+							</Typography>
+							<Chip label="Everyday" />
+						</MenuItem>
+					</Select>
+					{/* </FormControl> */}
 				</Grid>
 
 				{/* Date */}
@@ -57,16 +80,17 @@ const NewExpenses = () => {
 						Date
 					</Typography>
 					<Typography variant="body">
-						<LocalizationProvider
-							dateAdapter={AdapterDayjs}
-							adapterLocale="ru"
-							sx={{ width: '100%' }}
-						>
+						<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ru">
 							<MobileDatePicker
+								sx={{
+									width: '100%',
+								}}
+								value={selectedDate}
+								onChange={(el: any) => setSelectedDate(el)}
 								defaultValue={dayjs('2022-04-17')}
 								views={['day', 'month', 'year']}
-								sx={{ width: '100%' }}
 								format="D MMMM YYYY"
+								maxDate={dayjs(new Date())}
 							/>
 						</LocalizationProvider>
 					</Typography>

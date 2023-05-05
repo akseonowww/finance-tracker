@@ -8,31 +8,17 @@ import {
 	AppBar,
 	Badge,
 	Box,
+	SwipeableDrawer,
 } from '@mui/material';
 import { BsBell, BsSearch } from 'react-icons/bs';
 import { grey } from '@mui/material/colors';
-import Setting from '../Page/Settings/Settings';
-
-type Anchor = 'bottom';
+import Setting from '../../page/Settings/Settings';
 
 const Header = () => {
 	const [state, setState] = React.useState({
 		bottom: false,
 	});
-
-	const toggleDrawer =
-		(anchor: Anchor, open: boolean) =>
-		(event: React.KeyboardEvent | React.MouseEvent) => {
-			if (
-				event.type === 'keydown' &&
-				((event as React.KeyboardEvent).key === 'Tab' ||
-					(event as React.KeyboardEvent).key === 'Shift')
-			) {
-				return;
-			}
-
-			setState({ ...state, [anchor]: open });
-		};
+	const [openSetting, setOpenSetting] = React.useState(false);
 
 	return (
 		<AppBar
@@ -50,7 +36,7 @@ const Header = () => {
 			<Box>
 				<Button
 					sx={{ p: '0 12px 0 0', borderRadius: '100px' }}
-					onClick={toggleDrawer('bottom', true)}
+					onClick={() => setOpenSetting(!openSetting)}
 				>
 					<Box
 						sx={{
@@ -74,13 +60,14 @@ const Header = () => {
 						</Typography>
 					</Box>
 				</Button>
-				<Drawer
-					anchor={'bottom'}
-					open={state['bottom']}
-					onClose={toggleDrawer('bottom', false)}
+				<SwipeableDrawer
+					anchor="bottom"
+					open={openSetting}
+					onOpen={() => setOpenSetting(!openSetting)}
+					onClose={() => setOpenSetting(!openSetting)}
 				>
 					<Setting title={false} />
-				</Drawer>
+				</SwipeableDrawer>
 			</Box>
 			<Box>
 				<IconButton>

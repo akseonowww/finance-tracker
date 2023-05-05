@@ -1,5 +1,9 @@
 import { blue, red } from '@mui/material/colors';
 import shadows from '@mui/material/styles/shadows';
+import '@fontsource/inter/300.css';
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/700.css';
 
 declare module '@mui/material/styles' {
 	interface TypographyVariants {
@@ -93,8 +97,43 @@ declare module '@mui/material/Select' {
 }
 
 export const ThemeFT = {
+	overrides: {
+		MuiPickersCalendarHeader: {
+			switchHeader: {
+				color: '#6A148E',
+				textTransform: 'uppercase',
+				fontFamily: 'Inter, Arial, sans-serif',
+			},
+			dayLabel: {
+				textTransform: 'uppercase',
+				fontFamily: 'Inter, Arial, sans-serif',
+			},
+		},
+		MuiPickersDay: {
+			day: {
+				color: 'red',
+				fontFamily: 'Inter, Arial, sans-serif',
+			},
+			daySelected: {
+				backgroundColor: '#6A148E',
+				fontFamily: 'Inter, Arial, sans-serif',
+				'&:hover': {
+					backgroundColor: '#6A148E',
+				},
+			},
+			current: {
+				color: '#6A148E',
+				fontFamily: 'Inter, Arial, sans-serif',
+			},
+		},
+		MuiSvgIcon: {
+			root: {
+				fill: '#6A148E',
+			},
+		},
+	},
 	typography: {
-		fontFamily: 'Inter, Arial, sans-serif !important',
+		fontFamily: 'Inter, Arial, sans-serif',
 		headline: {
 			fontFamily: 'Inter, Arial, sans-serif',
 			fontWeight: 600,
@@ -186,6 +225,17 @@ export const ThemeFT = {
 		},
 	},
 	components: {
+		MuiCssBaseline: {
+			styleOverrides: `
+				 @font-face {
+					font-family: 'Inter, Arial, sans-serif';
+					font-style: normal;
+					font-display: swap;
+					font-weight: 400;
+					unicodeRange: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF;
+				 }
+			  `,
+		},
 		MuiTypography: {
 			defaultProps: {
 				variantMapping: {
@@ -270,13 +320,6 @@ export const ThemeFT = {
 					},
 				},
 			],
-		},
-		MuiDatePicker: {
-			styleOverrides: {
-				root: {
-					// backgroundColor: 'red',
-				},
-			},
 		},
 	},
 };

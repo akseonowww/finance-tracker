@@ -13,7 +13,7 @@ import {
 } from '@mui/material';
 import { blue, blueGrey, green, grey, orange } from '@mui/material/colors';
 import { BsFolder } from 'react-icons/bs';
-import { currencyFormat } from '../../Functions';
+import { currencyFormat } from '../../App';
 
 const Statistic = () => {
 	const data: any = [
@@ -119,7 +119,7 @@ const Statistic = () => {
 										minWidth: '28px',
 										height: '28px',
 										borderRadius: '8px',
-										background: el.color[400],
+										background: el.color[500],
 									}}
 								>
 									<BsFolder color={grey[50]} />

@@ -1,4 +1,5 @@
 import {
+	Box,
 	List,
 	ListItem,
 	ListItemIcon,
@@ -9,7 +10,7 @@ import {
 } from '@mui/material';
 import { blue, blueGrey } from '@mui/material/colors';
 import { BsHeartHalf } from 'react-icons/bs';
-import { currencyFormat } from '../../Functions';
+import { currencyFormat } from '../../App';
 
 const History = () => {
 	const data = [
@@ -72,7 +73,7 @@ const History = () => {
 						<ListItem key={index} sx={{ p: 0, gap: '12px' }}>
 							<ListItemIcon
 								sx={{
-									background: blue[50],
+									background: blue[100],
 									height: '44px',
 									width: '44px',
 									minWidth: 'auto',
@@ -83,11 +84,11 @@ const History = () => {
 									borderRadius: '100px',
 								}}
 							>
-								<BsHeartHalf size="24px" color={blue[400]} />
+								<BsHeartHalf size="24px" color={blue[500]} />
 							</ListItemIcon>
 							<ListItemText
 								primary={
-									<Typography variant="bodyMedium">
+									<Typography variant="bodyMedium" sx={{ display: 'block' }}>
 										{el.category.name}
 									</Typography>
 								}
