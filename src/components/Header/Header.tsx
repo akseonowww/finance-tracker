@@ -3,7 +3,6 @@ import {
 	Button,
 	Typography,
 	IconButton,
-	Drawer,
 	Avatar,
 	AppBar,
 	Badge,
@@ -15,9 +14,9 @@ import { grey } from '@mui/material/colors';
 import Setting from '../../page/Settings/Settings';
 
 const Header = () => {
-	const [state, setState] = React.useState({
-		bottom: false,
-	});
+	// const [state, setState] = React.useState({
+	// 	bottom: false,
+	// });
 	const [openSetting, setOpenSetting] = React.useState(false);
 
 	return (

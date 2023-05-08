@@ -8,6 +8,11 @@ import {
 	TextField,
 	Button,
 	Chip,
+	TextareaAutosize,
+	Alert,
+	AlertTitle,
+	Collapse,
+	Snackbar,
 	// TextareaAutosize,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -23,8 +28,10 @@ import { BsHeartHalf } from 'react-icons/bs';
 
 const NewExpenses = () => {
 	const [cash, setCash] = useState(0);
-	const [selectedDate, setSelectedDate] = useState(dayjs(new Date()));
-	console.log(dayjs(new Date()));
+	const [category, setCategory] = useState('health');
+	const [date, setDate] = useState(dayjs(new Date()));
+	const [desc, setDesc] = useState('');
+	const [openAlert, setOpenAlert] = useState(false);
 
 	return (
 		<Container sx={{ p: '12px 16px' }}>
@@ -38,40 +45,39 @@ const NewExpenses = () => {
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
 						Category
 					</Typography>
-					{/* <FormControl fullWidth={true}> */}
-					<Select defaultValue="health" fullWidth={true}>
+					<Select
+						onChange={(el: any) => setCategory(el.target.value)}
+						value={category}
+						fullWidth={true}
+					>
 						<MenuItem value="health">
-							<BsHeartHalf />
+							{/* <BsHeartHalf /> */}
 							<Typography
 								variant="body"
 								sx={{ margin: '0 0 0 8px', width: '100%' }}
 							>
 								Health
 							</Typography>
-							<Chip label="Everyday" />
 						</MenuItem>
 						<MenuItem value="clothes">
-							<BsHeartHalf />
+							{/* <BsHeartHalf /> */}
 							<Typography
 								variant="body"
 								sx={{ margin: '0 0 0 8px', width: '100%' }}
 							>
 								Clothes
 							</Typography>
-							<Chip label="Everyday" />
 						</MenuItem>
 						<MenuItem value="eating-out">
-							<BsHeartHalf />
+							{/* <BsHeartHalf /> */}
 							<Typography
 								variant="body"
 								sx={{ margin: '0 0 0 8px', width: '100%' }}
 							>
 								Eating out
 							</Typography>
-							<Chip label="Everyday" />
 						</MenuItem>
 					</Select>
-					{/* </FormControl> */}
 				</Grid>
 
 				{/* Date */}
@@ -85,8 +91,8 @@ const NewExpenses = () => {
 								sx={{
 									width: '100%',
 								}}
-								value={selectedDate}
-								onChange={(el: any) => setSelectedDate(el)}
+								value={date}
+								onChange={(el: any) => setDate(el)}
 								defaultValue={dayjs('2022-04-17')}
 								views={['day', 'month', 'year']}
 								format="D MMMM YYYY"
@@ -96,16 +102,15 @@ const NewExpenses = () => {
 					</Typography>
 				</Grid>
 
-				{/* Amount */}
+				{/* Cash */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
-						Amount
+						Cash
 					</Typography>
 					<Typography variant="body">
 						<NumericFormat
 							fullWidth={true}
-							// value={0}
-							// onChange={(el: any) => setCash(el)}
+							onValueChange={(el: any) => setCash(el.value)}
 							placeholder="0 ₽"
 							customInput={TextField}
 							allowNegative={false}
@@ -125,13 +130,12 @@ const NewExpenses = () => {
 					<Typography variant="body">
 						<TextField
 							type="text"
+							onChange={(el: any) => setDesc(el.target.value)}
+							rows={3}
+							multiline
 							fullWidth
 							placeholder="I went to bus and readed and drats"
 						/>
-						{/* <TextareaAutosize
-							minRows={3}
-							placeholder="I went to bus and readed and drats"
-						/> */}
 					</Typography>
 				</Grid>
 			</Grid>
@@ -143,8 +147,36 @@ const NewExpenses = () => {
 				gap={'6px'}
 				sx={{ position: 'absolute', bottom: 0, right: 0, p: '8px 16px' }}
 			>
+				{/* Alert */}
+				<Collapse in={openAlert}>
+					<Alert severity="success">
+						<AlertTitle>
+							<Typography variant="title">
+								{category} ({cash})
+							</Typography>
+						</AlertTitle>
+						<Typography variant="body">
+							{desc + ' '}
+							{date.format('DD.MM.YYYY')}
+						</Typography>
+					</Alert>
+				</Collapse>
 				<Grid item>
-					<Button variant="contained" fullWidth>
+					<Button
+						variant="contained"
+						fullWidth
+						onClick={() => setOpenAlert(true)}
+						// onClick={() =>
+						// 	console.table([
+						// 		{
+						// 			Date: date.format('DD.MM.YYYY'),
+						// 			Category: category,
+						// 			Cash: cash,
+						// 			Desc: desc,
+						// 		},
+						// 	])
+						// }
+					>
 						Create an expenses
 					</Button>
 				</Grid>
