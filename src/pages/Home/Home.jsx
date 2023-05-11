@@ -1,5 +1,5 @@
 import { Box, Container, SpeedDial, Typography } from '@mui/material';
-import Header from '../../components/Header/Header';
+import Header from '../../layout/Header/Header';
 import Statistic from '../../components/Statistic/Statistic';
 import History from '../../components/History/History';
 import { BsPlus } from 'react-icons/bs';
@@ -13,22 +13,12 @@ const Home = () => {
 			sx={{ background: '#E4E8EB', minHeight: '100vh' }}
 		>
 			<Header />
-			<Box>
-				<Box sx={{ textAlign: 'center', p: '0' }}>
-					<Typography variant="headline">123 ₽</Typography>
-					<Typography variant="body" color={blueGrey[600]}>
-						expenses today
-					</Typography>
-				</Box>
 
+			<Box>
 				<Statistic />
 				<History />
-				{/* <Stack spacing={2} direction="row">
-					<Button variant="text">Text</Button>
-					<Button variant="contained">Contained</Button>
-					<Button variant="outlined">Outlined</Button>
-				</Stack> */}
 			</Box>
+
 			<Link to="/new">
 				<SpeedDial
 					ariaLabel="Create new expenses"

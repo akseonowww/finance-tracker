@@ -1,7 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Setting from './page/Settings/Settings';
-import NewExpenses from './page/NewExpenses/NewExpenses';
-import Home from './page/Home/Home';
+import Setting from './pages/Settings/Settings';
+import NewExpenses from './pages/NewExpense/NewExpense';
+import Home from './pages/Home/Home';
+import StatisticPage from './pages/StatisticPage/StatisticPage';
+import History from './components/History/History';
 
 export const currencyFormat = (num: number, format: 'ru' | 'en') => {
 	switch (format) {
@@ -21,6 +23,8 @@ const App = () => {
 				<Route path="/" element={<Home />} />
 				<Route path="/new" element={<NewExpenses />} />
 				<Route path="/setting" element={<Setting />} />
+				<Route path="/history" element={<History />} />
+				<Route path="/statistic" element={<StatisticPage />} />
 			</Routes>
 		</BrowserRouter>
 	);

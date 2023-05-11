@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import { blue, blueGrey, red, grey } from '@mui/material/colors';
 import { BsBoxArrowRight, BsChevronRight, BsTelegram } from 'react-icons/bs';
+import Footer from '../../layout/Footer/Footer';
 
 const Setting = ({ title = true }) => {
 	return (
@@ -449,23 +450,9 @@ const Setting = ({ title = true }) => {
 							</ListItem>
 						</List>
 					</Paper>
-					<Box
-						sx={{
-							display: 'flex',
-							flexDirection: 'column',
-							justifyContent: 'center',
-							alignItems: 'center',
-							p: '40px 0',
-							gap: '8px',
-						}}
-					>
-						<Grid display={'flex'} gap="6px" alignItems={'center'}>
-							<BsTelegram size={'24px'} color={blue[400]} />
-							<Typography variant="bodyBold">Finance Tracker </Typography>
-						</Grid>
-						<Typography variant="body">Version 1.4.2 (summer 2023)</Typography>
-					</Box>
 				</Grid>
+
+				<Footer />
 			</Grid>
 		</Container>
 	);

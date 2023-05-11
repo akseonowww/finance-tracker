@@ -1,5 +1,4 @@
 import {
-	Box,
 	List,
 	ListItem,
 	ListItemIcon,
@@ -11,46 +10,10 @@ import {
 import { blue, blueGrey } from '@mui/material/colors';
 import { BsHeartHalf } from 'react-icons/bs';
 import { currencyFormat } from '../../App';
+import historyStore from '../../store/HistoryStore';
+import { observer } from 'mobx-react-lite';
 
-const History = () => {
-	const data = [
-		{
-			cash: 9000,
-			data: '20230704T120854',
-			category: { name: 'Health', limit: 10000, groups: 'Everyday' },
-			icon: <BsHeartHalf />,
-		},
-		{
-			cash: 9000,
-			data: '20230704T120854',
-			category: { name: 'Health', limit: 10000, groups: 'Everyday' },
-			icon: <BsHeartHalf />,
-		},
-		{
-			cash: 9000,
-			data: '20230702T120854',
-			category: { name: 'Health', limit: 0, groups: 'Everyday' },
-			icon: <BsHeartHalf />,
-		},
-		{
-			cash: 9000,
-			data: '20230704T120854',
-			category: { name: 'Health', limit: 10000, groups: 'Everyday' },
-			icon: <BsHeartHalf />,
-		},
-		{
-			cash: 9000,
-			data: '20230704T120854',
-			category: { name: 'Health', limit: 10000, groups: 'Everyday' },
-			icon: <BsHeartHalf />,
-		},
-		{
-			cash: 9000,
-			data: '20230702T120854',
-			category: { name: 'Health', limit: 0, groups: 'Everyday' },
-			icon: <BsHeartHalf />,
-		},
-	];
+const History = observer(() => {
 	return (
 		<Paper variant="big">
 			<Stack
@@ -67,10 +30,11 @@ const History = () => {
 					9 000 ₽
 				</Typography>
 			</Stack>
+
 			<List sx={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-				{data.map((el, index) => {
+				{historyStore.expenses.map((el) => {
 					return (
-						<ListItem key={index} sx={{ p: 0, gap: '12px' }}>
+						<ListItem key={el.id} sx={{ p: 0, gap: '12px' }}>
 							<ListItemIcon
 								sx={{
 									background: blue[100],
@@ -89,14 +53,12 @@ const History = () => {
 							<ListItemText
 								primary={
 									<Typography variant="bodyMedium" sx={{ display: 'block' }}>
-										{el.category.name}
+										{el.category}
 									</Typography>
 								}
 								secondary={
 									<Typography variant="footnoteMedium" color={blueGrey[400]}>
-										{el.category.limit
-											? currencyFormat(el.category.limit, 'ru')
-											: ' '}
+										{currencyFormat(10000, 'ru')}
 									</Typography>
 								}
 							/>
@@ -109,6 +71,6 @@ const History = () => {
 			</List>
 		</Paper>
 	);
-};
+});
 
 export default History;

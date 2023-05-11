@@ -1,19 +1,14 @@
 import {
 	Container,
-	FormControl,
 	Grid,
 	MenuItem,
 	Select,
 	Typography,
 	TextField,
 	Button,
-	Chip,
-	TextareaAutosize,
 	Alert,
 	AlertTitle,
 	Collapse,
-	Snackbar,
-	// TextareaAutosize,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { blue } from '@mui/material/colors';
@@ -24,14 +19,25 @@ import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
 import { NumericFormat } from 'react-number-format';
 import { useState } from 'react';
-import { BsHeartHalf } from 'react-icons/bs';
+import { observer } from 'mobx-react-lite';
+import historyStore from '../../store/HistoryStore';
 
-const NewExpenses = () => {
+const NewExpense = observer(() => {
 	const [cash, setCash] = useState(0);
 	const [category, setCategory] = useState('health');
 	const [date, setDate] = useState(dayjs(new Date()));
 	const [desc, setDesc] = useState('');
 	const [openAlert, setOpenAlert] = useState(false);
+
+	const hundleSubmit = () => {
+		setOpenAlert(true);
+		const data = { date, cash, category, desc };
+		historyStore.addExpenses(data);
+
+		historyStore.expenses.map((el) => {
+			return console.log(el.id, el.category, el.cash, el.desc);
+		});
+	};
 
 	return (
 		<Container sx={{ p: '12px 16px' }}>
@@ -49,6 +55,7 @@ const NewExpenses = () => {
 						onChange={(el: any) => setCategory(el.target.value)}
 						value={category}
 						fullWidth={true}
+						required
 					>
 						<MenuItem value="health">
 							{/* <BsHeartHalf /> */}
@@ -86,7 +93,11 @@ const NewExpenses = () => {
 						Date
 					</Typography>
 					<Typography variant="body">
-						<LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ru">
+						<LocalizationProvider
+							dateAdapter={AdapterDayjs}
+							adapterLocale="ru"
+							required
+						>
 							<MobileDatePicker
 								sx={{
 									width: '100%',
@@ -109,8 +120,9 @@ const NewExpenses = () => {
 					</Typography>
 					<Typography variant="body">
 						<NumericFormat
+							required
 							fullWidth={true}
-							onValueChange={(el: any) => setCash(el.value)}
+							onValueChange={(el: any) => setCash(el.floatValue)}
 							placeholder="0 ₽"
 							customInput={TextField}
 							allowNegative={false}
@@ -152,31 +164,22 @@ const NewExpenses = () => {
 					<Alert severity="success">
 						<AlertTitle>
 							<Typography variant="title">
-								{category} ({cash})
+								{
+									historyStore.expenses[historyStore.expenses.length - 1]
+										.category
+								}{' '}
+								({historyStore.expenses[historyStore.expenses.length - 1].cash})
 							</Typography>
 						</AlertTitle>
 						<Typography variant="body">
-							{desc + ' '}
-							{date.format('DD.MM.YYYY')}
+							{historyStore.expenses[historyStore.expenses.length - 1].desc +
+								' '}
+							{/* {historyStore.expenses[1].date.format('DD.MM.YYYY')} */}
 						</Typography>
 					</Alert>
 				</Collapse>
 				<Grid item>
-					<Button
-						variant="contained"
-						fullWidth
-						onClick={() => setOpenAlert(true)}
-						// onClick={() =>
-						// 	console.table([
-						// 		{
-						// 			Date: date.format('DD.MM.YYYY'),
-						// 			Category: category,
-						// 			Cash: cash,
-						// 			Desc: desc,
-						// 		},
-						// 	])
-						// }
-					>
+					<Button variant="contained" fullWidth onClick={hundleSubmit}>
 						Create an expenses
 					</Button>
 				</Grid>
@@ -190,6 +193,6 @@ const NewExpenses = () => {
 			</Grid>
 		</Container>
 	);
-};
+});
 
-export default NewExpenses;
+export default NewExpense;

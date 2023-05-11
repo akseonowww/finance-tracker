@@ -7,7 +7,7 @@ import '@fontsource/inter/400.css';
 import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { ThemeFT } from './ThemeFT';
+import { themeFT } from './themeFT';
 // import StoreProvider from './context';
 
 const root = ReactDOM.createRoot(
@@ -21,14 +21,14 @@ if (
 )
 	throw new Error('Transpiler is not configured correctly');
 
-const theme = createTheme(ThemeFT as any);
+const theme = createTheme(themeFT as any);
 
 root.render(
 	<React.StrictMode>
 		{/* <StoreProvider> */}
-			<ThemeProvider theme={theme}>
-				<App />
-			</ThemeProvider>
+		<ThemeProvider theme={theme}>
+			<App />
+		</ThemeProvider>
 		{/* </StoreProvider> */}
 	</React.StrictMode>
 );

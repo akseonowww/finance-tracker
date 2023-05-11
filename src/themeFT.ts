@@ -1,4 +1,4 @@
-import { blue, red } from '@mui/material/colors';
+import { red } from '@mui/material/colors';
 import shadows from '@mui/material/styles/shadows';
 import '@fontsource/inter/300.css';
 import '@fontsource/inter/400.css';
@@ -96,7 +96,7 @@ declare module '@mui/material/Select' {
 	}
 }
 
-export const ThemeFT = {
+export const themeFT = {
 	overrides: {
 		MuiPickersCalendarHeader: {
 			switchHeader: {
@@ -154,6 +154,7 @@ export const ThemeFT = {
 			fontFamily: 'Inter, Arial, sans-serif',
 			fontWeight: 400,
 			fontSize: '16px',
+			lineHeight: '16px',
 		},
 		bodyMedium: {
 			fontFamily: 'Inter, Arial, sans-serif',
