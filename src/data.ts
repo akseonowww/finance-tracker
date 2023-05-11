@@ -5,7 +5,7 @@ export const data = {
 		avatar: '/',
 		auth_service: 'Google Account',
 	},
-	folder: [
+	group: [
 		{
 			id: 1,
 			name: 'Everyday',

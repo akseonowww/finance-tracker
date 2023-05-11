@@ -4,7 +4,7 @@ export interface Expense {
 	id: number;
 	date?: any;
 	cash: number;
-	category: string;
+	category: number;
 	desc?: string;
 }
 
@@ -14,37 +14,37 @@ class HistoryStore {
 			id: 1,
 			date: '20230704T120854',
 			cash: 8000,
-			category: 'Health',
+			category: 1,
 		},
 		{
 			id: 2,
 			cash: 8000,
 			date: '20230704T120854',
-			category: 'Health',
+			category: 2,
 		},
 		{
 			id: 3,
 			cash: 8000,
 			date: '20230702T120854',
-			category: 'Health',
+			category: 1,
 		},
 		{
 			id: 4,
 			cash: 8000,
 			date: '20230704T120854',
-			category: 'Health',
+			category: 3,
 		},
 		{
 			id: 5,
 			cash: 8000,
 			date: '20230704T120854',
-			category: 'Health',
+			category: 1,
 		},
 		{
 			id: 6,
 			cash: 8000,
 			date: '20230702T120854',
-			category: 'Health',
+			category: 2,
 		},
 	];
 

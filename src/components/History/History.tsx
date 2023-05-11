@@ -8,10 +8,10 @@ import {
 	Typography,
 } from '@mui/material';
 import { blue, blueGrey } from '@mui/material/colors';
-import { BsHeartHalf } from 'react-icons/bs';
 import { currencyFormat } from '../../App';
 import historyStore from '../../store/HistoryStore';
 import { observer } from 'mobx-react-lite';
+import categoryStore from '../../store/CategoryStore';
 
 const History = observer(() => {
 	return (
@@ -48,18 +48,22 @@ const History = observer(() => {
 									borderRadius: '100px',
 								}}
 							>
-								<BsHeartHalf size="24px" color={blue[500]} />
+								{categoryStore.categories[el.category - 1].icon(24, blue[500])}
+								{/* <BsHeartHalf size="24px" color={blue[500]} /> */}
 							</ListItemIcon>
 							<ListItemText
 								primary={
 									<Typography variant="bodyMedium" sx={{ display: 'block' }}>
-										{el.category}
+										{categoryStore.categories[el.category - 1].title}
 									</Typography>
 								}
 								secondary={
-									<Typography variant="footnoteMedium" color={blueGrey[400]}>
-										{currencyFormat(10000, 'ru')}
-									</Typography>
+									el.desc && (
+										<Typography variant="footnoteMedium" color={blueGrey[400]}>
+											{/* {currencyFormat(10000, 'ru')} */}
+											Desc.: {el.desc}
+										</Typography>
+									)
 								}
 							/>
 							<Typography variant="bodyMedium">
