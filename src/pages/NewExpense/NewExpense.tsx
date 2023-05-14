@@ -11,21 +11,30 @@ import {
 	Chip,
 	Box,
 	Snackbar,
+	Slide,
+	SlideProps,
 } from '@mui/material';
+import { makeStyles } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { MobileDatePicker } from '@mui/x-date-pickers/MobileDatePicker';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ru';
-import { NumericFormat } from 'react-number-format';
 import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import { NumericFormat } from 'react-number-format';
 import historyStore from '../../store/HistoryStore';
-import categoryStore, { Category } from '../../store/CategoryStore';
 import groupStore from '../../store/GroupStore';
-import * as colors from '@mui/material/colors';
+import categoryStore, { Category } from '../../store/CategoryStore';
 import { currencyFormat } from '../../App';
+import { blue, grey } from '@mui/material/colors';
+
+type TransitionProps = Omit<SlideProps, 'direction'>;
+
+function TransitionDown(props: TransitionProps) {
+	return <Slide {...props} direction="down" />;
+}
 
 const NewExpense = observer(() => {
 	const [cash, setCash] = useState(0);
@@ -33,6 +42,17 @@ const NewExpense = observer(() => {
 	const [date, setDate] = useState(dayjs(new Date()));
 	const [desc, setDesc] = useState('');
 	const [openAlert, setOpenAlert] = useState(false);
+
+	const classes = {
+		root: {
+			'& .MuiOutlinedInput-input': {
+				border: 0,
+				borderRadius: 3,
+				color: 'red',
+				fontSize: 24,
+			},
+		},
+	};
 
 	const hundleSubmit = () => {
 		if (cash > 0) {
@@ -86,19 +106,14 @@ const NewExpense = observer(() => {
 												gap: '12px',
 											}}
 										>
-											{el.icon(24, colors.blue[400])}
+											{el.icon(24, blue[400])}
 											<Typography variant="body">{el.title}</Typography>
 										</Box>
 										<Chip
 											label={groupStore.groups[el.id - 1].title}
 											sx={{
-												color: colors.grey[50],
+												color: grey[50],
 												background: groupStore.groups[el.id - 1].color,
-												// >>> Как привязать цвета?
-												// colors[groupStore.groups[1].color as any][400],
-												// colors[Object.keys(colors)[0] as any][400],
-												// 	(key) => colors[key as keyof typeof colors]
-												// colors[groupStore.groups[el.id - 1].color][400],
 											}}
 										/>
 									</Box>
@@ -129,6 +144,9 @@ const NewExpense = observer(() => {
 								views={['day', 'month', 'year']}
 								format="D MMMM YYYY"
 								maxDate={dayjs(new Date())}
+								// renderInput={(params: any) => (
+								// 	<TextField className={classes.root} {...params} />
+								// )}
 							/>
 						</LocalizationProvider>
 					</Typography>
@@ -175,15 +193,21 @@ const NewExpense = observer(() => {
 			</Grid>
 
 			{/* Buttons */}
-			<Grid
-				container
-				direction="column"
-				gap={'6px'}
-				// sx={{ p: '8px 16px' }}
-			>
+			<Grid container direction="column" gap={'6px'}>
 				{/* Alert */}
-				<Snackbar open={openAlert} autoHideDuration={1000}>
-					<Alert severity="success">
+				<Snackbar
+					open={openAlert}
+					autoHideDuration={10000}
+					onClose={() => setOpenAlert(false)}
+					TransitionComponent={TransitionDown}
+					anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+					sx={{ top: '8px' }}
+				>
+					<Alert
+						severity="success"
+						sx={{ width: '100%' }}
+						onClose={() => setOpenAlert(false)}
+					>
 						<AlertTitle>
 							<Typography variant="title">
 								{categoryStore.categories[category - 1].title} (
@@ -208,7 +232,7 @@ const NewExpense = observer(() => {
 				</Grid>
 				<Grid item>
 					<Link to="/" style={{ textDecoration: 'none' }}>
-						<Button variant="text" fullWidth sx={{ color: colors.blue[400] }}>
+						<Button variant="text" fullWidth sx={{ color: blue[400] }}>
 							Cancel
 						</Button>
 					</Link>

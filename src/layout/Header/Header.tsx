@@ -13,6 +13,15 @@ import { BsBell, BsSearch } from 'react-icons/bs';
 import { blueGrey, grey } from '@mui/material/colors';
 import Setting from '../../pages/Settings/Settings';
 import avatar from '../../assets/avatar.jpg';
+import { styled } from '@mui/material/styles';
+
+const Puller = styled(Box)(({ theme }) => ({
+	width: 120,
+	height: 4,
+	backgroundColor: '#B5C0C9',
+	borderRadius: 100,
+	m: '0 auto',
+}));
 
 const Header = () => {
 	const [openSetting, setOpenSetting] = React.useState(false);
@@ -78,15 +87,8 @@ const Header = () => {
 							</Typography>
 						</Button>
 					</Box>
-					<SwipeableDrawer
-						anchor="bottom"
-						open={openSetting}
-						onOpen={() => setOpenSetting(!openSetting)}
-						onClose={() => setOpenSetting(!openSetting)}
-					>
-						<Setting title={false} />
-					</SwipeableDrawer>
 				</Box>
+
 				<Box>
 					<IconButton>
 						<BsSearch />
@@ -116,6 +118,27 @@ const Header = () => {
 					expenses today
 				</Typography>
 			</Button>
+			<SwipeableDrawer
+				anchor="bottom"
+				hysteresis={1}
+				open={openSetting}
+				onOpen={() => setOpenSetting(true)}
+				onClose={() => setOpenSetting(false)}
+				SwipeAreaProps={<Button>123</Button>}
+			>
+				<Box
+					sx={{
+						background: '#E4E8EB',
+						display: 'flex',
+						justifyContent: 'center',
+						p: '44px 0 6px 0',
+					}}
+					onClick={() => setOpenSetting(false)}
+				>
+					<Puller />
+				</Box>
+				<Setting title={false} />
+			</SwipeableDrawer>
 		</>
 	);
 };

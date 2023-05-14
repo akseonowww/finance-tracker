@@ -14,13 +14,21 @@ import {
 	Avatar,
 	IconButton,
 } from '@mui/material';
-import { blue, blueGrey, red, grey } from '@mui/material/colors';
-import { BsBoxArrowRight, BsChevronRight, BsTelegram } from 'react-icons/bs';
+import { blueGrey, red, grey } from '@mui/material/colors';
+import { BsBoxArrowRight, BsChevronRight } from 'react-icons/bs';
 import Footer from '../../layout/Footer/Footer';
+import avatar from '../../assets/avatar.jpg';
 
 const Setting = ({ title = true }) => {
 	return (
-		<Container sx={{ background: '#E4E8EB', minHeight: '100vh', p: 0 }}>
+		<Container
+			sx={{
+				background: '#E4E8EB',
+				minHeight: '100vh',
+				p: '0 0 0 0',
+				// borderRadius: '22px 22px 0 0',
+			}}
+		>
 			{title && (
 				<Typography variant="headline" sx={{ p: '16px' }}>
 					Setting{' '}
@@ -34,10 +42,9 @@ const Setting = ({ title = true }) => {
 							<ListItem>
 								<ListItemAvatar>
 									<Avatar
-										// sizes="72px"
 										sx={{ height: '72px', width: '72px', marginRight: '16px' }}
 										alt="Danila Kashen"
-										src="https://sun6-22.userapi.com/impg/5sbuUmceG008qGwxRs9T-2vBiWJcOPxgY0PbSA/XgvcbD5ivPM.jpg?size=1792x1792&quality=96&sign=87ff6c843cc1f0e0d9af27e4ebcb1ac5&type=album"
+										src={avatar}
 									>
 										DK
 									</Avatar>

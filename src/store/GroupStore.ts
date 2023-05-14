@@ -5,7 +5,7 @@ export interface Group {
 	id: number;
 	title: string;
 	name: string;
-	color: string;
+	color: any;
 }
 
 class GroupStore {
@@ -14,19 +14,19 @@ class GroupStore {
 			id: 1,
 			title: 'Everyday',
 			name: 'everyday',
-			color: 'blue',
+			color: blue[400],
 		},
 		{
 			id: 2,
 			title: 'Apartment',
 			name: 'apartment',
-			color: 'green',
+			color: green[400],
 		},
 		{
 			id: 3,
 			title: 'Large',
 			name: 'large',
-			color: 'orange',
+			color: orange[400],
 		},
 	];
 
