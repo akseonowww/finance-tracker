@@ -8,9 +8,9 @@ import {
 	Button,
 	Alert,
 	AlertTitle,
-	Collapse,
 	Chip,
 	Box,
+	Snackbar,
 } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { LocalizationProvider } from '@mui/x-date-pickers';
@@ -35,13 +35,14 @@ const NewExpense = observer(() => {
 	const [openAlert, setOpenAlert] = useState(false);
 
 	const hundleSubmit = () => {
-		setOpenAlert(true);
-		const data = { date, cash, category, desc };
-		historyStore.addExpenses(data);
-
-		historyStore.expenses.map((el) => {
-			return console.log(el.id, el.category, el.cash, el.desc);
-		});
+		if (cash > 0) {
+			setOpenAlert(true);
+			const data = { date, cash, category, desc };
+			console.log(data);
+			historyStore.addExpenses(data);
+		} else {
+			console.log('Cash < 0!!!');
+		}
 	};
 
 	return (
@@ -62,7 +63,6 @@ const NewExpense = observer(() => {
 						Category
 					</Typography>
 					<Select
-						// onChange={(el: any) => console.log(el)}
 						onChange={(el: any) => setCategory(el.target.value)}
 						value={category}
 						fullWidth={true}
@@ -94,6 +94,7 @@ const NewExpense = observer(() => {
 											sx={{
 												color: colors.grey[50],
 												background: groupStore.groups[el.id - 1].color,
+												// >>> Как привязать цвета?
 												// colors[groupStore.groups[1].color as any][400],
 												// colors[Object.keys(colors)[0] as any][400],
 												// 	(key) => colors[key as keyof typeof colors]
@@ -141,18 +142,17 @@ const NewExpense = observer(() => {
 					<Typography variant="body">
 						<NumericFormat
 							required
-							fullWidth={true}
-							onValueChange={(el: any) => setCash(el.floatValue)}
-							placeholder="0 ₽"
+							type="tel"
 							customInput={TextField}
+							placeholder="0 ₽"
+							suffix={' ₽'}
+							onValueChange={(el: any) => setCash(el.floatValue)}
 							allowNegative={false}
 							decimalScale={0}
 							thousandsGroupStyle="thousand"
 							thousandSeparator=" "
-							suffix={' ₽'}
-							type="tel"
+							fullWidth={true}
 						/>
-						<input type="number" name="a" id="s" />
 					</Typography>
 				</Grid>
 
@@ -182,7 +182,7 @@ const NewExpense = observer(() => {
 				// sx={{ p: '8px 16px' }}
 			>
 				{/* Alert */}
-				<Collapse in={openAlert}>
+				<Snackbar open={openAlert} autoHideDuration={1000}>
 					<Alert severity="success">
 						<AlertTitle>
 							<Typography variant="title">
@@ -200,7 +200,7 @@ const NewExpense = observer(() => {
 							{/* {historyStore.expenses[1].date.format('DD.MM.YYYY')} */}
 						</Typography>
 					</Alert>
-				</Collapse>
+				</Snackbar>
 				<Grid item>
 					<Button variant="contained" fullWidth onClick={hundleSubmit}>
 						Create an expenses

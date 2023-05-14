@@ -66,14 +66,14 @@ const Header = () => {
 						<Button
 							onClick={() => setCloseExpenses(false)}
 							sx={{
-								display: closeExpenses ? 'block' : 'none',
+								display: closeExpenses ? 'inline-block' : 'none',
 								color: 'black',
 								borderRadius: '100px',
-								p: '0 8px',
-								m: '0 0 0 -10px',
+								p: '0',
+								m: '0 0 0 -6px',
 							}}
 						>
-							<Typography variant="body" color={blueGrey[600]}>
+							<Typography variant="footnote" color={blueGrey[600]}>
 								123 ₽ (today)
 							</Typography>
 						</Button>

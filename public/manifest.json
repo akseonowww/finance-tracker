@@ -1,0 +1,21 @@
+{
+	"name": "Finance Tracker",
+	"description": "App for finances",
+	"start_url": ".",
+	"id": "/",
+	"icons": [
+		{
+			"src": "./images/icon_x192.png",
+			"type": "image/png",
+			"sizes": "192x192"
+		},
+		{
+			"src": "./images/icon_x512.png",
+			"type": "image/png",
+			"sizes": "512x512"
+		}
+	],
+	"background_color": "#E4E8EB",
+	"display": "fullscreen",
+	"theme_color": "#E4E8EB"
+}
