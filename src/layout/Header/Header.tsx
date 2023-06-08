@@ -71,21 +71,6 @@ const Header = () => {
 								Danila Kashen
 							</Typography>
 						</Button>
-
-						<Button
-							onClick={() => setCloseExpenses(false)}
-							sx={{
-								display: closeExpenses ? 'inline-block' : 'none',
-								color: 'black',
-								borderRadius: '100px',
-								p: '0',
-								m: '0 0 0 -6px',
-							}}
-						>
-							<Typography variant="footnote" color={blueGrey[600]}>
-								123 ₽ (today)
-							</Typography>
-						</Button>
 					</Box>
 				</Box>
 
@@ -100,6 +85,21 @@ const Header = () => {
 					</IconButton>
 				</Box>
 			</AppBar>
+			<Button
+				onClick={() => setCloseExpenses(false)}
+				sx={{
+					display: closeExpenses ? 'block' : 'none',
+					color: 'black',
+					width: '100%',
+					borderRadius: '100px',
+					p: '0',
+					m: '0 auto',
+				}}
+			>
+				<Typography variant="footnote" color={blueGrey[600]}>
+					123 ₽ (today)
+				</Typography>
+			</Button>
 			<Button
 				onClick={() => setCloseExpenses(true)}
 				sx={{

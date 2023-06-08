@@ -180,8 +180,9 @@ export const themeFT = {
 		},
 		footnoteBold: {
 			fontFamily: 'Inter, Arial, sans-serif',
-			fontWeight: 400,
+			fontWeight: 600,
 			fontSize: '14px',
+			lineHeight: '17px',
 			margin: '0 !important',
 		},
 		caption: {
@@ -279,6 +280,26 @@ export const themeFT = {
 			},
 		},
 		MuiInput: {
+			styleOverrides: {
+				root: ({ ownerState }: any) => ({
+					...((ownerState && {
+						backgroundColor: '#0190F8',
+						color: '#F4F8FB',
+						boxShadow: 'none',
+						textTransform: 'none',
+						borderRadius: '12px',
+						padding: '12px 16px ',
+					}) ||
+						(ownerState.variant === 'text' &&
+							ownerState.color === 'primary' && {
+								color: '#0190F8',
+								boxShadow: 'none',
+								textTransform: 'none',
+								borderRadius: '12px',
+								padding: '8px 16px ',
+							})),
+				}),
+			},
 			variants: [
 				{
 					props: { variant: 'default' },

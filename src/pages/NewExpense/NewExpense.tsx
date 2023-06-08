@@ -12,6 +12,7 @@ import {
 	Box,
 	Snackbar,
 	Slide,
+	ListItemIcon,
 	SlideProps,
 } from '@mui/material';
 import { makeStyles } from '@mui/material/styles';
@@ -28,7 +29,8 @@ import historyStore from '../../store/HistoryStore';
 import groupStore from '../../store/GroupStore';
 import categoryStore, { Category } from '../../store/CategoryStore';
 import { currencyFormat } from '../../App';
-import { blue, grey } from '@mui/material/colors';
+import { blue, blueGrey, grey } from '@mui/material/colors';
+import { BsFolder } from 'react-icons/bs';
 
 type TransitionProps = Omit<SlideProps, 'direction'>;
 
@@ -37,7 +39,7 @@ function TransitionDown(props: TransitionProps) {
 }
 
 const NewExpense = observer(() => {
-	const [cash, setCash] = useState(0);
+	const [cash, setCash] = useState(1000);
 	const [category, setCategory] = useState(1);
 	const [date, setDate] = useState(dayjs(new Date()));
 	const [desc, setDesc] = useState('');
@@ -57,8 +59,11 @@ const NewExpense = observer(() => {
 	const hundleSubmit = () => {
 		if (cash > 0) {
 			setOpenAlert(true);
+
 			const data = { date, cash, category, desc };
 			console.log(data);
+			// submitHandler(data);
+
 			historyStore.addExpenses(data);
 		} else {
 			console.log('Cash < 0!!!');
@@ -86,6 +91,10 @@ const NewExpense = observer(() => {
 						onChange={(el: any) => setCategory(el.target.value)}
 						value={category}
 						fullWidth={true}
+						sx={{
+							background: '#fff',
+							borderRadius: '16px',
+						}}
 						required
 					>
 						{categoryStore.categories.map((el: Category) => {
@@ -106,11 +115,40 @@ const NewExpense = observer(() => {
 												gap: '12px',
 											}}
 										>
-											{el.icon(24, blue[400])}
+											<ListItemIcon
+												sx={{
+													background: blue[100],
+													height: '44px',
+													width: '44px',
+													minWidth: 'auto',
+													boxSizing: 'border-box',
+													display: 'flex',
+													justifyContent: 'center',
+													alignItems: 'center',
+													borderRadius: '100px',
+												}}
+											>
+												{el.icon(24, blue[400])}
+											</ListItemIcon>
 											<Typography variant="body">{el.title}</Typography>
 										</Box>
 										<Chip
-											label={groupStore.groups[el.id - 1].title}
+											label={
+												<Box
+													sx={{
+														display: 'flex',
+														justifyContent: 'center',
+														alignItems: 'center',
+														gap: '6px',
+														height: '28px',
+													}}
+												>
+													<BsFolder height={'16px'} width={'16px'} />
+													<Typography variant="captionMedium">
+														{groupStore.groups[el.id - 1].title}
+													</Typography>
+												</Box>
+											}
 											sx={{
 												color: grey[50],
 												background: groupStore.groups[el.id - 1].color,
@@ -137,6 +175,7 @@ const NewExpense = observer(() => {
 							<MobileDatePicker
 								sx={{
 									width: '100%',
+									backgroundColor: '#E4E8EB',
 								}}
 								value={date}
 								onChange={(el: any) => setDate(el)}
@@ -144,9 +183,6 @@ const NewExpense = observer(() => {
 								views={['day', 'month', 'year']}
 								format="D MMMM YYYY"
 								maxDate={dayjs(new Date())}
-								// renderInput={(params: any) => (
-								// 	<TextField className={classes.root} {...params} />
-								// )}
 							/>
 						</LocalizationProvider>
 					</Typography>
@@ -159,7 +195,12 @@ const NewExpense = observer(() => {
 					</Typography>
 					<Typography variant="body">
 						<NumericFormat
+							sx={{
+								width: '100%',
+								backgroundColor: '#E4E8EB',
+							}}
 							required
+							value={cash || null}
 							type="tel"
 							customInput={TextField}
 							placeholder="0 ₽"
@@ -181,6 +222,17 @@ const NewExpense = observer(() => {
 					</Typography>
 					<Typography variant="body">
 						<TextField
+							sx={{ p: '0' }}
+							inputProps={{
+								sx: {
+									// width: '100%',
+									backgroundColor: '#E4E8EB',
+									border: '1px solid red',
+								},
+							}}
+							FormHelperTextProps={{
+								sx: {},
+							}}
 							type="text"
 							onChange={(el: any) => setDesc(el.target.value)}
 							rows={3}

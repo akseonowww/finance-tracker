@@ -1,4 +1,4 @@
-import { Box, Container, SpeedDial, Typography } from '@mui/material';
+import { Box, Container, SpeedDial } from '@mui/material';
 import Header from '../../layout/Header/Header';
 import Statistic from '../../components/Statistic/Statistic';
 import History from '../../components/History/History';
