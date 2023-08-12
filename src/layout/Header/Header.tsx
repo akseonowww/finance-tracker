@@ -68,7 +68,7 @@ const Header = () => {
 								variant="bodyMedium"
 								sx={{ color: grey[900], textTransform: 'none' }}
 							>
-								Danila Kashen
+								Данила Кашин
 							</Typography>
 						</Button>
 					</Box>
@@ -97,7 +97,7 @@ const Header = () => {
 				}}
 			>
 				<Typography variant="footnote" color={blueGrey[600]}>
-					123 ₽ (today)
+					123 ₽ (сегодня)
 				</Typography>
 			</Button>
 			<Button
@@ -115,7 +115,7 @@ const Header = () => {
 			>
 				<Typography variant="headline">123 ₽</Typography>
 				<Typography variant="body" color={blueGrey[600]}>
-					expenses today
+					расходы за сегодня
 				</Typography>
 			</Button>
 			<SwipeableDrawer

@@ -13,7 +13,7 @@ class CategoryStore {
 	categories: Category[] = [
 		{
 			id: 1,
-			title: 'Eating out',
+			title: 'Еда вне дома',
 			name: 'eating-out',
 			icon: (size: number, color: any) => (
 				<BsCupHot style={{ height: size, width: size, color: color }} />
@@ -22,7 +22,7 @@ class CategoryStore {
 		},
 		{
 			id: 2,
-			title: 'All for Home',
+			title: 'Всё для дома',
 			name: 'all-for-home',
 			icon: (size: number, color: any) => (
 				<BsLamp style={{ height: size, width: size, color: color }} />
@@ -31,7 +31,7 @@ class CategoryStore {
 		},
 		{
 			id: 3,
-			title: 'Gadgets',
+			title: 'Гаджеты',
 			name: 'gadgets',
 			icon: (size: number, color: any) => (
 				<BsUsbSymbol style={{ height: size, width: size, color: color }} />

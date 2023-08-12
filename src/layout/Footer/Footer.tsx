@@ -19,11 +19,11 @@ const Footer = () => {
 					<Typography variant="bodyBold">Finance Tracker </Typography>
 				</Grid>
 				<Typography variant="body" marginBottom="16px">
-					Version 1.4.2 (summer 2023)
+					Версия 30.08.2023 (лето 2023)
 				</Typography>
 				<Typography variant="body">
 					<Link href="https://akseonowww.bio.link/">
-						Akseonowww Dev. (social networks)
+						akseonowww (соц-сети и другие проекты)
 					</Link>
 				</Typography>
 			</Box>

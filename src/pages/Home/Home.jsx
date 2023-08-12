@@ -21,7 +21,7 @@ const Home = () => {
 
 			<Link to="/new">
 				<SpeedDial
-					ariaLabel="Create new expenses"
+					ariaLabel="Создать новую запись"
 					sx={{ position: 'fixed', bottom: 32, right: 16 }}
 					icon={<BsPlus size={52} />}
 				/>

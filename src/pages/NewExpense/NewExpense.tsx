@@ -81,11 +81,13 @@ const NewExpense = observer(() => {
 			}}
 		>
 			<Grid container direction="column" gap="16px" sx={{ height: '100%' }}>
-				<Typography variant="headline">New expenses</Typography>
+				<Typography variant="headline">
+					Новая запись
+				</Typography>
 				{/* Category */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
-						Category
+						Категория
 					</Typography>
 					<Select
 						onChange={(el: any) => setCategory(el.target.value)}
@@ -164,7 +166,7 @@ const NewExpense = observer(() => {
 				{/* Date */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
-						Date
+						Дата
 					</Typography>
 					<Typography variant="body">
 						<LocalizationProvider
@@ -191,7 +193,7 @@ const NewExpense = observer(() => {
 				{/* Cash */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
-						Cash
+						Сумма
 					</Typography>
 					<Typography variant="body">
 						<NumericFormat
@@ -218,7 +220,7 @@ const NewExpense = observer(() => {
 				{/* Description */}
 				<Grid item>
 					<Typography variant="title" sx={{ marginBottom: '6px' }}>
-						Description
+						Описание
 					</Typography>
 					<Typography variant="body">
 						<TextField
@@ -238,7 +240,7 @@ const NewExpense = observer(() => {
 							rows={3}
 							multiline
 							fullWidth
-							placeholder="I went to bus and readed and drats"
+							placeholder="Я сходил в кофешку..."
 						/>
 					</Typography>
 				</Grid>
@@ -279,13 +281,13 @@ const NewExpense = observer(() => {
 				</Snackbar>
 				<Grid item>
 					<Button variant="contained" fullWidth onClick={hundleSubmit}>
-						Create an expenses
+						Создать запись
 					</Button>
 				</Grid>
 				<Grid item>
 					<Link to="/" style={{ textDecoration: 'none' }}>
 						<Button variant="text" fullWidth sx={{ color: blue[400] }}>
-							Cancel
+							Отмена
 						</Button>
 					</Link>
 				</Grid>

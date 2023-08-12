@@ -31,7 +31,7 @@ const Setting = ({ title = true }) => {
 		>
 			{title && (
 				<Typography variant="headline" sx={{ p: '16px' }}>
-					Setting{' '}
+					Настройки
 				</Typography>
 			)}
 			<Grid container direction="column" gap="6px">
@@ -59,7 +59,7 @@ const Setting = ({ title = true }) => {
 												marginBottom: '4px',
 											}}
 										>
-											Danila Kashen
+											Данила Кашин
 										</Typography>
 									}
 									secondary={
@@ -67,7 +67,7 @@ const Setting = ({ title = true }) => {
 											variant="body"
 											sx={{ color: grey[900], textTransform: 'none' }}
 										>
-											Google Account
+											Google Аккаунт
 										</Typography>
 									}
 								/>
@@ -83,7 +83,7 @@ const Setting = ({ title = true }) => {
 				<Grid item>
 					<Paper variant="min">
 						<Typography variant="title" sx={{ m: '0 16px' }}>
-							General
+							Основное
 						</Typography>
 						<ListItem disablePadding>
 							<ListItemButton
@@ -94,13 +94,13 @@ const Setting = ({ title = true }) => {
 							>
 								<ListItemText
 									sx={{ flex: 'none' }}
-									primary={<Typography variant="body">Theme</Typography>}
+									primary={<Typography variant="body">Тема</Typography>}
 								/>
 								<ListItemText
 									sx={{ flex: 'none' }}
 									primary={
 										<Typography variant="footnote" color={blueGrey[400]}>
-											Auto
+											Авто
 										</Typography>
 									}
 								/>
@@ -117,13 +117,13 @@ const Setting = ({ title = true }) => {
 							>
 								<ListItemText
 									sx={{ flex: 'none' }}
-									primary={<Typography variant="body">Language</Typography>}
+									primary={<Typography variant="body">Язык</Typography>}
 								/>
 								<ListItemText
 									sx={{ flex: 'none' }}
 									primary={
 										<Typography variant="footnote" color={blueGrey[400]}>
-											Use system settings
+											Как в системе
 										</Typography>
 									}
 								/>
@@ -136,7 +136,7 @@ const Setting = ({ title = true }) => {
 				<Grid item>
 					<Paper variant="min">
 						<Typography variant="title" sx={{ m: '0 16px ' }}>
-							Finance
+							Финансы
 						</Typography>
 						<List sx={{ p: 0 }}>
 							<ListItem disablePadding>
@@ -149,14 +149,14 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
-											<Typography variant="body">Main currency</Typography>
+											<Typography variant="body">Главная валюта</Typography>
 										}
 									/>
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
 											<Typography variant="footnote" color={blueGrey[400]}>
-												Russian ruble, ₽
+												Российский рубль, ₽
 											</Typography>
 										}
 									/>
@@ -174,7 +174,7 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
-											<Typography variant="body">Type of numbers</Typography>
+											<Typography variant="body">Вид чисел</Typography>
 										}
 									/>
 									<ListItemText
@@ -199,7 +199,7 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
-											<Typography variant="body">Hide balance</Typography>
+											<Typography variant="body">Скрывать баланс</Typography>
 										}
 									/>
 									<Switch />
@@ -216,7 +216,7 @@ const Setting = ({ title = true }) => {
 								>
 									<ListItemText
 										sx={{ flex: 'none' }}
-										primary={<Typography variant="body">Categories</Typography>}
+										primary={<Typography variant="body">Категории</Typography>}
 									/>
 									<BsChevronRight color={blueGrey[400]} />
 								</ListItemButton>
@@ -232,7 +232,7 @@ const Setting = ({ title = true }) => {
 								>
 									<ListItemText
 										sx={{ flex: 'none' }}
-										primary={<Typography variant="body">Limits</Typography>}
+										primary={<Typography variant="body">Лимиты</Typography>}
 									/>
 									<BsChevronRight color={blueGrey[400]} />
 								</ListItemButton>
@@ -250,7 +250,7 @@ const Setting = ({ title = true }) => {
 										sx={{ flex: 'none' }}
 										primary={
 											<Typography variant="body">
-												Export transactions to CSV
+												Экспортировать данные 
 											</Typography>
 										}
 									/>
@@ -270,7 +270,7 @@ const Setting = ({ title = true }) => {
 										sx={{ flex: 'none' }}
 										primary={
 											<Typography variant="body">
-												Import & Backup Data
+												Импортировать данные
 											</Typography>
 										}
 									/>
@@ -290,7 +290,7 @@ const Setting = ({ title = true }) => {
 										sx={{ flex: 'none', color: red[400] }}
 										primary={
 											<Typography variant="bodyMedium">
-												Clear expense history
+												Очистить историю расходов
 											</Typography>
 										}
 									/>
@@ -305,7 +305,7 @@ const Setting = ({ title = true }) => {
 				<Grid item>
 					<Paper variant="min">
 						<Typography variant="title" sx={{ m: '0 16px ' }}>
-							Notifications
+							Уведомления
 						</Typography>
 						<List sx={{ p: 0 }}>
 							<ListItem disablePadding>
@@ -318,7 +318,7 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
-											<Typography variant="body">Push notifications</Typography>
+											<Typography variant="body">Пуш уведомления</Typography>
 										}
 									/>
 									<Switch />
@@ -336,14 +336,14 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
-											<Typography variant="body">Send a report</Typography>
+											<Typography variant="body">Составлять отчёт</Typography>
 										}
 									/>
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
 											<Typography variant="footnote" color={blueGrey[400]}>
-												every night
+												каждый вечер
 											</Typography>
 										}
 									/>
@@ -362,7 +362,7 @@ const Setting = ({ title = true }) => {
 										sx={{ flex: 'none' }}
 										primary={
 											<Typography variant="body">
-												Remind you to introduce expenses
+												Напоминание 
 											</Typography>
 										}
 									/>
@@ -370,7 +370,7 @@ const Setting = ({ title = true }) => {
 										sx={{ flex: 'none' }}
 										primary={
 											<Typography variant="footnote" color={blueGrey[400]}>
-												at 21:00
+												21:00
 											</Typography>
 										}
 									/>
@@ -384,7 +384,7 @@ const Setting = ({ title = true }) => {
 				<Grid item>
 					<Paper variant="min">
 						<Typography variant="title" sx={{ m: '0 16px ' }}>
-							Other
+							Другое
 						</Typography>
 						<List sx={{ p: 0 }}>
 							<ListItem disablePadding>
@@ -396,7 +396,7 @@ const Setting = ({ title = true }) => {
 								>
 									<ListItemText
 										sx={{ flex: 'none' }}
-										primary={<Typography variant="body">About</Typography>}
+										primary={<Typography variant="body">О нас</Typography>}
 									/>
 									<BsChevronRight color={blueGrey[400]} />
 								</ListItemButton>
@@ -413,7 +413,7 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
-											<Typography variant="body">Ask a Question</Typography>
+											<Typography variant="body">Вопрос/ответ</Typography>
 										}
 									/>
 									<BsChevronRight color={blueGrey[400]} />
@@ -431,7 +431,7 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none' }}
 										primary={
-											<Typography variant="body">Telegram channel</Typography>
+											<Typography variant="body">Телеграм канал</Typography>
 										}
 									/>
 									<BsChevronRight color={blueGrey[400]} />
@@ -449,7 +449,7 @@ const Setting = ({ title = true }) => {
 									<ListItemText
 										sx={{ flex: 'none', color: red[400] }}
 										primary={
-											<Typography variant="bodyMedium">Sign out</Typography>
+											<Typography variant="bodyMedium">Выйти</Typography>
 										}
 									/>
 									<BsChevronRight color={blueGrey[400]} />

@@ -21,10 +21,10 @@ const History = observer(() => {
 				sx={{ alignItems: 'center', justifyContent: 'space-between' }}
 			>
 				<Typography variant="headlineMini" gutterBottom>
-					History
+					История
 				</Typography>
 				<Typography variant="footnote" color={blueGrey[400]}>
-					today, 1 July
+					сегодня, 1 июля
 				</Typography>
 				<Typography variant="footnoteMedium" color={blueGrey[400]}>
 					9 000 ₽
