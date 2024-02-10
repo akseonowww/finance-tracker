@@ -15,7 +15,6 @@ import {
 	ListItemIcon,
 	SlideProps,
 } from '@mui/material';
-import { makeStyles } from '@mui/material/styles';
 import { Link } from 'react-router-dom';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -29,7 +28,7 @@ import historyStore from '../../store/HistoryStore';
 import groupStore from '../../store/GroupStore';
 import categoryStore, { Category } from '../../store/CategoryStore';
 import { currencyFormat } from '../../App';
-import { blue, blueGrey, grey } from '@mui/material/colors';
+import { blue, grey } from '@mui/material/colors';
 import { BsFolder } from 'react-icons/bs';
 
 type TransitionProps = Omit<SlideProps, 'direction'>;
@@ -43,18 +42,7 @@ const NewExpense = observer(() => {
 	const [category, setCategory] = useState(1);
 	const [date, setDate] = useState(dayjs(new Date()));
 	const [desc, setDesc] = useState('');
-	const [openAlert, setOpenAlert] = useState(false);
-
-	const classes = {
-		root: {
-			'& .MuiOutlinedInput-input': {
-				border: 0,
-				borderRadius: 13,
-				color: 'red',
-				fontSize: 24,
-			},
-		},
-	};
+	const [openAlert, setOpenAlert] = useState(false)
 
 	const hundleSubmit = () => {
 		if (cash > 0) {

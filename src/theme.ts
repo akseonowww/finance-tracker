@@ -1,11 +1,8 @@
-import { MobileDatePicker } from "@mui/x-date-pickers/MobileDatePicker";
-import { red } from "@mui/material/colors";
-import shadows from "@mui/material/styles/shadows";
 import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
-import { PaletteOptions, ThemeOptions, colors } from "@mui/material";
+import { PaletteOptions, ThemeOptions } from "@mui/material";
 import { blue, green, orange, grey } from "./colors";
 
 const palette: PaletteOptions = {

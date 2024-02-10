@@ -7,12 +7,11 @@ import {
 	Stack,
 	Typography,
 } from '@mui/material';
-import { blue, blueGrey } from '@mui/material/colors';
+import { blueGrey } from '@mui/material/colors';
 import { currencyFormat } from '../../App';
 import historyStore from '../../store/HistoryStore';
 import { observer } from 'mobx-react-lite';
 import categoryStore from '../../store/CategoryStore';
-import { theme } from '../../theme';
 
 const History:any = observer(() => {
 	return (

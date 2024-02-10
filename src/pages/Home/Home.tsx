@@ -4,7 +4,6 @@ import Statistic from '../../components/Statistic/Statistic';
 import History from '../../components/History/History';
 import { BsPlus } from 'react-icons/bs';
 import { Link } from 'react-router-dom';
-import { blueGrey } from '@mui/material/colors';
 import { theme } from '../../theme';
 
 const Home = () => {
