@@ -152,7 +152,6 @@ const Statistic = () => {
                </ListItem>
             ))}
          </List>
-         <Button fullWidth>Открыть</Button>
       </Paper>
    );
 };
