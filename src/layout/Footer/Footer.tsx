@@ -1,4 +1,4 @@
-import { Box, Grid, Link, Typography } from '@mui/material';
+import { Box, Grid, Typography } from '@mui/material';
 import logo from '../../assets/logo_24x24.svg';
 
 const Footer = () => {
