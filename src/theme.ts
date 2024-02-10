@@ -1,9 +1,9 @@
+import { PaletteOptions, ThemeOptions } from "@mui/material";
+import { blue, green, orange, grey } from "./colors";
 import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
 import "@fontsource/inter/700.css";
-import { PaletteOptions, ThemeOptions } from "@mui/material";
-import { blue, green, orange, grey } from "./colors";
 
 const palette: PaletteOptions = {
    common: {
@@ -40,57 +40,53 @@ export const theme: ThemeOptions = {
       fontFamily: '"Inter", "Arial", sans-serif',
       // Заголовки
       headline: {
+         fontFamily: '"Inter", "Arial", sans-serif',
          fontWeight: 600,
          fontSize: "28px",
          lineHeight: "36px",
       },
       headlineMini: {
+         fontFamily: '"Inter", "Arial", sans-serif',
          fontWeight: 600,
          fontSize: "20px",
       },
       title: {
+         fontFamily: '"Inter", "Arial", sans-serif',
          fontWeight: 600,
          fontSize: "18px",
       },
-
       // Обычный текст
       body: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 400,
          fontSize: "16px",
          lineHeight: "16px",
       },
       bodyMedium: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 500,
          fontSize: "16px",
       },
       bodyBold: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 600,
          fontSize: "16px",
       },
       // Мелкий
       footnote: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 400,
          fontSize: "14px",
          margin: "0 !important",
       },
       footnoteMedium: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 500,
          fontSize: "14px",
          margin: "0 !important",
       },
       footnoteBold: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 600,
          fontSize: "14px",
          lineHeight: "17px",
@@ -99,26 +95,22 @@ export const theme: ThemeOptions = {
       // Подпись
       caption: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 400,
          fontSize: "12px",
       },
       captionMedium: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 500,
          fontSize: "12px",
       },
       captionBold: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontWeight: 600,
          fontSize: "12px",
       },
       // Кнопка
       button: {
          fontFamily: '"Inter", "Arial", sans-serif',
-
          fontSize: "16px",
       },
       h1: undefined,
@@ -170,7 +162,7 @@ export const theme: ThemeOptions = {
          },
       },
 
-      // Кнопка
+      // Button
       MuiButton: {
          defaultProps: {
             style: {
@@ -208,6 +200,38 @@ export const theme: ThemeOptions = {
             },
          },
       },
+      // Input
+      MuiTextField: {
+         defaultProps: {
+            style: {
+               border: "none",
+            },
+            InputLabelProps: {
+               style: {
+                  border: "none",
+               },
+            },
+            InputProps: {
+               style: {
+                  color: "red",
+                  background: palette.grey?.[100],
+                  borderRadius: "16px",
+                  // padding: '10px 12px'
+               },
+            },
+         },
+      },
+      // Date
+      MuiInputBase: {
+         defaultProps: {
+            style: {
+               // background: 'red',
+               // color: 'red',
+               background: palette.grey?.[100],
+               borderRadius: "16px",
+            },
+         },
+      },
 
       // Container
       MuiContainer: {
@@ -221,6 +245,7 @@ export const theme: ThemeOptions = {
             },
          },
       },
+      // Paper
       MuiPaper: {
          variants: [
             {
@@ -242,38 +267,6 @@ export const theme: ThemeOptions = {
                },
             },
          ],
-      },
-
-      MuiTextField: {
-         defaultProps: {
-            style: {
-               border: "none",
-            },
-            InputLabelProps: {
-               style: {
-                  border: "none",
-               },
-            },
-            InputProps: {
-               style: {
-                  color: "red",
-                  background: palette.grey?.[100],
-                  borderRadius: "16px",
-                  // padding: '10px 12px'
-               },
-            },
-         },
-      },
-      // Дата
-      MuiInputBase: {
-         defaultProps: {
-            style: {
-               // background: 'red',
-               // color: 'red',
-               background: palette.grey?.[100],
-               borderRadius: "16px",
-            },
-         },
       },
    },
 };
