@@ -42,7 +42,6 @@ export const theme: ThemeOptions = {
          fontFamily: '"Inter", "Arial", sans-serif',
          fontWeight: 600,
          fontSize: "20px",
-         margin: "0 !important",
       },
       title: {
          fontFamily: '"Inter", "Arial", sans-serif',
@@ -71,7 +70,6 @@ export const theme: ThemeOptions = {
          fontFamily: '"Inter", "Arial", sans-serif',
          fontWeight: 400,
          fontSize: "14px",
-         margin: "0 !important",
       },
       footnoteMedium: {
          fontFamily: '"Inter", "Arial", sans-serif',
@@ -84,7 +82,6 @@ export const theme: ThemeOptions = {
          fontWeight: 600,
          fontSize: "14px",
          lineHeight: "17px",
-         margin: "0 !important",
       },
       // Подпись
       caption: {
