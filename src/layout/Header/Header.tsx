@@ -10,10 +10,10 @@ import {
 	SwipeableDrawer,
 } from '@mui/material';
 import { BsBell, BsSearch } from 'react-icons/bs';
-import { blueGrey, grey } from '@mui/material/colors';
 import Setting from '../../pages/Settings/Settings';
 import avatar from '../../assets/avatar.jpg';
 import { styled } from '@mui/material/styles';
+import { grey } from '../../colors';
 
 const Puller = styled(Box)(({ theme }) => ({
 	width: 120,
@@ -25,7 +25,6 @@ const Puller = styled(Box)(({ theme }) => ({
 
 const Header = () => {
 	const [openSetting, setOpenSetting] = React.useState(false);
-	const [closeExpenses, setCloseExpenses] = React.useState(false);
 
 	return (
 		<>
@@ -88,44 +87,21 @@ const Header = () => {
 				</Box>
 			</AppBar>
 			{/* Потраченая сумма */}
-			<Button
-				onClick={() => setCloseExpenses(true)}
+			<Box
 				sx={{
-					display: closeExpenses ? 'none' : 'flex',
+					display: 'flex',
 					justifyItems: 'center',
 					flexDirection: 'column',
 					textAlign: 'center',
-					gap: '-2px',
-					color: 'black',
 					p: '6px 12px',
 					m: '0 auto',
 				}}
-				style={{
-					height: 'auto',
-					padding: '0'
-				}}
 			>
-				<Typography variant="headline">123 ₽</Typography>
-				<Typography variant="body" color={blueGrey[600]}>
+				<Typography variant="headline" color={grey[900]}>123 ₽</Typography>
+				<Typography variant="body" color={grey[600]}>
 					расходы за сегодня
 				</Typography>
-			</Button>
-			{/* Потраченая сумма (сокращенная) */}
-			<Button
-				onClick={() => setCloseExpenses(false)}
-				sx={{
-					display: closeExpenses ? 'block' : 'none',
-					color: 'black',
-					width: '100%',
-					borderRadius: '100px',
-					p: '0',
-					m: '0 auto',
-				}}
-			>
-				<Typography variant="footnote" color={blueGrey[600]}>
-					123 ₽ (сегодня)
-				</Typography>
-			</Button>
+			</Box>
 			{/* Выпадающее меню настроек */}
 			<SwipeableDrawer
 				anchor="bottom"
