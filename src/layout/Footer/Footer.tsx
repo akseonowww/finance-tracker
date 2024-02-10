@@ -21,11 +21,11 @@ const Footer = () => {
 				<Typography variant="body" marginBottom="16px">
 					Версия 30.08.2023 (лето 2023)
 				</Typography>
-				<Typography variant="body">
+				{/* <Typography variant="body">
 					<Link href="https://akseonowww.bio.link/">
 						akseonowww (соц-сети и другие проекты)
 					</Link>
-				</Typography>
+				</Typography> */}
 			</Box>
 		</footer>
 	);

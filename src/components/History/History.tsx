@@ -12,8 +12,9 @@ import { currencyFormat } from '../../App';
 import historyStore from '../../store/HistoryStore';
 import { observer } from 'mobx-react-lite';
 import categoryStore from '../../store/CategoryStore';
+import { theme } from '../../theme';
 
-const History = observer(() => {
+const History:any = observer(() => {
 	return (
 		<Paper variant="big">
 			<Stack
@@ -37,7 +38,7 @@ const History = observer(() => {
 						<ListItem key={el.id} sx={{ p: 0, gap: '12px' }}>
 							<ListItemIcon
 								sx={{
-									background: blue[100],
+									background: '#D1E9F9',
 									height: '44px',
 									width: '44px',
 									minWidth: 'auto',
@@ -48,7 +49,7 @@ const History = observer(() => {
 									borderRadius: '100px',
 								}}
 							>
-								{categoryStore.categories[el.category - 1].icon(24, blue[500])}
+								{categoryStore.categories[el.category - 1].icon(24, '#0190F8')}
 								{/* <BsHeartHalf size="24px" color={blue[500]} /> */}
 							</ListItemIcon>
 							<ListItemText

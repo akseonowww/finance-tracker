@@ -41,6 +41,7 @@ const Header = () => {
 					boxShadow: 'none',
 				}}
 			>
+				{/* Аккаунт (меню) */}
 				<Box>
 					<Box
 						sx={{
@@ -52,16 +53,16 @@ const Header = () => {
 					>
 						<Button
 							sx={{
-								p: '1px 12px 1px 1px',
 								display: 'flex',
 								alignItems: 'center',
 								justifyContent: 'left',
 								gap: '8px',
 								borderRadius: '100px',
 							}}
+
 							onClick={() => setOpenSetting(!openSetting)}
 						>
-							<Avatar alt="Danila Kashen" src={avatar}>
+							<Avatar sx={{height: '36px', width: '36px'}} alt="Danila Kashen" src={avatar}>
 								DK
 							</Avatar>
 							<Typography
@@ -74,6 +75,7 @@ const Header = () => {
 					</Box>
 				</Box>
 
+				{/* Поиск и Уведомления */}
 				<Box>
 					<IconButton>
 						<BsSearch />
@@ -85,6 +87,30 @@ const Header = () => {
 					</IconButton>
 				</Box>
 			</AppBar>
+			{/* Потраченая сумма */}
+			<Button
+				onClick={() => setCloseExpenses(true)}
+				sx={{
+					display: closeExpenses ? 'none' : 'flex',
+					justifyItems: 'center',
+					flexDirection: 'column',
+					textAlign: 'center',
+					gap: '-2px',
+					color: 'black',
+					p: '6px 12px',
+					m: '0 auto',
+				}}
+				style={{
+					height: 'auto',
+					padding: '0'
+				}}
+			>
+				<Typography variant="headline">123 ₽</Typography>
+				<Typography variant="body" color={blueGrey[600]}>
+					расходы за сегодня
+				</Typography>
+			</Button>
+			{/* Потраченая сумма (сокращенная) */}
 			<Button
 				onClick={() => setCloseExpenses(false)}
 				sx={{
@@ -100,24 +126,7 @@ const Header = () => {
 					123 ₽ (сегодня)
 				</Typography>
 			</Button>
-			<Button
-				onClick={() => setCloseExpenses(true)}
-				sx={{
-					display: closeExpenses ? 'none' : 'flex',
-					justifyItems: 'center',
-					flexDirection: 'column',
-					textAlign: 'center',
-					gap: '-2px',
-					color: 'black',
-					p: '6px 12px',
-					m: '0 auto',
-				}}
-			>
-				<Typography variant="headline">123 ₽</Typography>
-				<Typography variant="body" color={blueGrey[600]}>
-					расходы за сегодня
-				</Typography>
-			</Button>
+			{/* Выпадающее меню настроек */}
 			<SwipeableDrawer
 				anchor="bottom"
 				hysteresis={1}

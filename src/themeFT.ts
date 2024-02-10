@@ -98,6 +98,9 @@ declare module '@mui/material/Select' {
 
 export const themeFT = {
 	overrides: {
+		
+		// = Календарь =
+		// Шапка
 		MuiPickersCalendarHeader: {
 			switchHeader: {
 				color: '#6A148E',
@@ -109,6 +112,7 @@ export const themeFT = {
 				fontFamily: 'Inter, Arial, sans-serif',
 			},
 		},
+		// Выбор дня
 		MuiPickersDay: {
 			day: {
 				color: 'red',
@@ -126,14 +130,21 @@ export const themeFT = {
 				fontFamily: 'Inter, Arial, sans-serif',
 			},
 		},
+
+		// Иконка
 		MuiSvgIcon: {
 			root: {
 				fill: '#6A148E',
 			},
 		},
 	},
+
+
+	// Типография
 	typography: {
 		fontFamily: 'Inter, Arial, sans-serif',
+
+		// Заголовки
 		headline: {
 			fontFamily: 'Inter, Arial, sans-serif',
 			fontWeight: 600,
@@ -150,6 +161,8 @@ export const themeFT = {
 			fontWeight: 600,
 			fontSize: '18px',
 		},
+
+		// Обычный текст
 		body: {
 			fontFamily: 'Inter, Arial, sans-serif',
 			fontWeight: 400,
@@ -166,6 +179,7 @@ export const themeFT = {
 			fontWeight: 600,
 			fontSize: '16px',
 		},
+		// Мелкий
 		footnote: {
 			fontFamily: 'Inter, Arial, sans-serif',
 			fontWeight: 400,
@@ -185,6 +199,7 @@ export const themeFT = {
 			lineHeight: '17px',
 			margin: '0 !important',
 		},
+		// Подпись
 		caption: {
 			fontFamily: 'Inter, Arial, sans-serif',
 			fontWeight: 400,
@@ -200,6 +215,7 @@ export const themeFT = {
 			fontWeight: 600,
 			fontSize: '12px',
 		},
+		// Кнопка
 		button: {
 			fontSize: '16px',
 		},
@@ -214,6 +230,9 @@ export const themeFT = {
 		body1: undefined,
 		body2: undefined,
 	},
+
+
+	// Палитра
 	palette: {
 		primary: {
 			main: '#0190F8',
@@ -226,7 +245,11 @@ export const themeFT = {
 			default: 'red',
 		},
 	},
+
+
+	// Компоненты
 	components: {
+		// Базовые стили
 		MuiCssBaseline: {
 			styleOverrides: `
 				 @font-face {
@@ -238,6 +261,7 @@ export const themeFT = {
 				 }
 			  `,
 		},
+		// Типография
 		MuiTypography: {
 			defaultProps: {
 				variantMapping: {
@@ -256,6 +280,7 @@ export const themeFT = {
 				},
 			},
 		},
+		// Кнопки
 		MuiButton: {
 			styleOverrides: {
 				root: ({ ownerState }: any) => ({
@@ -279,6 +304,7 @@ export const themeFT = {
 				}),
 			},
 		},
+		// Инпуты
 		MuiInput: {
 			styleOverrides: {
 				root: ({ ownerState }: any) => ({
@@ -311,6 +337,8 @@ export const themeFT = {
 				},
 			],
 		},
+
+		// Блок
 		MuiPaper: {
 			variants: [
 				{
@@ -333,6 +361,7 @@ export const themeFT = {
 				},
 			],
 		},
+		// Инпут с выбором 
 		MuiSelect: {
 			variants: [
 				{

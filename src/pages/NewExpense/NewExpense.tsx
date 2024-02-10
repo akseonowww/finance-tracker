@@ -49,7 +49,7 @@ const NewExpense = observer(() => {
 		root: {
 			'& .MuiOutlinedInput-input': {
 				border: 0,
-				borderRadius: 3,
+				borderRadius: 13,
 				color: 'red',
 				fontSize: 24,
 			},
@@ -72,31 +72,24 @@ const NewExpense = observer(() => {
 
 	return (
 		<Container
-			sx={{
-				p: '12px 16px',
-				minHeight: '100vh',
-				display: 'flex',
-				flexDirection: 'column',
-				justifyContent: 'space-between',
-			}}
-		>
-			<Grid container direction="column" gap="16px" sx={{ height: '100%' }}>
+		sx={{p: '12px 16px'}}>
+			<Grid container direction="column" gap="16px" 
+			// sx={{ height: '100%' }}
+			>
 				<Typography variant="headline">
 					Новая запись
 				</Typography>
 				{/* Category */}
 				<Grid item>
-					<Typography variant="title" sx={{ marginBottom: '6px' }}>
+					<Typography variant="title" 
+					sx={{ marginBottom: '6px' }}
+					>
 						Категория
 					</Typography>
 					<Select
 						onChange={(el: any) => setCategory(el.target.value)}
 						value={category}
 						fullWidth={true}
-						sx={{
-							background: '#fff',
-							borderRadius: '16px',
-						}}
 						required
 					>
 						{categoryStore.categories.map((el: Category) => {
@@ -108,7 +101,7 @@ const NewExpense = observer(() => {
 											display: 'flex',
 											justifyContent: 'space-between',
 											alignItems: 'center',
-										}}
+										}}	
 									>
 										<Box
 											sx={{
@@ -197,10 +190,10 @@ const NewExpense = observer(() => {
 					</Typography>
 					<Typography variant="body">
 						<NumericFormat
-							sx={{
-								width: '100%',
-								backgroundColor: '#E4E8EB',
-							}}
+							// sx={{
+							// 	width: '100%',
+							// 	backgroundColor: '#E4E8EB',
+							// }}
 							required
 							value={cash || null}
 							type="tel"
@@ -225,13 +218,13 @@ const NewExpense = observer(() => {
 					<Typography variant="body">
 						<TextField
 							sx={{ p: '0' }}
-							inputProps={{
-								sx: {
-									// width: '100%',
-									backgroundColor: '#E4E8EB',
-									border: '1px solid red',
-								},
-							}}
+							// inputProps={{
+							// 	sx: {
+							// 		// width: '100%',
+							// 		backgroundColor: '#E4E8EB',
+							// 		border: '1px solid red',
+							// 	},
+							// }}
 							FormHelperTextProps={{
 								sx: {},
 							}}
@@ -279,18 +272,18 @@ const NewExpense = observer(() => {
 						</Typography>
 					</Alert>
 				</Snackbar>
+					<Link to="/" style={{ textDecoration: 'none' }}>
 				<Grid item>
 					<Button variant="contained" fullWidth onClick={hundleSubmit}>
 						Создать запись
 					</Button>
 				</Grid>
 				<Grid item>
-					<Link to="/" style={{ textDecoration: 'none' }}>
 						<Button variant="text" fullWidth sx={{ color: blue[400] }}>
 							Отмена
 						</Button>
-					</Link>
 				</Grid>
+					</Link>
 			</Grid>
 		</Container>
 	);

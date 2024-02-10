@@ -11,12 +11,19 @@ import {
    Stack,
    Typography,
 } from "@mui/material";
-import { blue, blueGrey, green, grey, orange } from "@mui/material/colors";
 import { BsFolder } from "react-icons/bs";
 import { currencyFormat } from "../../App";
+import { blue, green, grey, orange } from "../../colors";
+
+interface expense {
+   name: string,
+   cash: number,
+   color: any,
+   precent: number
+}
 
 const Statistic = () => {
-   const data: any = [
+   const data:expense[] = [
       {
          name: "Крупные",
          cash: 30000,
@@ -38,17 +45,19 @@ const Statistic = () => {
    ];
    let dataash: number = 0;
 
-   data.map((el: any) => {
+   data.map((el: expense) => {
       return (dataash += el.cash);
    });
-   data.map((el: any) => {
+   data.map((el: expense) => {
       return (el.precent = Math.floor(el.cash / (dataash / 100)));
    });
 
-   const miniChart = (arr: any) => {
+   const miniChart = (arr: expense[]) => {
       return (
          <Grid
             container
+            // Из-за процентов съезжает
+            // gap={'1px'}
             sx={{
                minWidth: "100%",
                margin: 0,
@@ -57,14 +66,14 @@ const Statistic = () => {
                m: "8px 0 4px",
             }}
          >
-            {arr.map((el: any, index: any) => {
+            {arr.map((el: expense, index: any) => {
                return (
                   <Grid
                      item
                      key={index}
                      width={`${el.precent}%`}
                      height={"20px"}
-                     sx={{ background: el.color[400] }}
+                     sx={{ background: el.color.main }}
                   />
                );
             })}
@@ -87,7 +96,7 @@ const Statistic = () => {
             }}
          >
             <Typography variant="headlineMini">Статистика</Typography>
-            <Typography variant="footnote" color={blueGrey[400]}>
+            <Typography variant="footnote" color={grey[400]}>
                1 нед. июля
             </Typography>
          </Box>
@@ -102,7 +111,7 @@ const Statistic = () => {
                         justifyContent="space-between"
                         alignItems="center"
                         sx={{
-                           background: el.color[100],
+                           background: el.color.light,
                            boxSizing: "border-box",
                            width: 70,
                            height: 28,
@@ -119,14 +128,14 @@ const Statistic = () => {
                               minWidth: "28px",
                               height: "28px",
                               borderRadius: "8px",
-                              background: el.color[500],
+                              background: el.color.main,
                            }}
                         >
                            <BsFolder color={grey[50]} />
                         </Box>
                         <Typography
                            variant="footnoteMedium"
-                           sx={{ color: el.color[700] }}
+                           sx={{ color: el.color.main }}
                         >
                            {el.precent}%
                         </Typography>
