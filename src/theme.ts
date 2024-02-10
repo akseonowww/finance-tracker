@@ -1,8 +1,9 @@
 import { PaletteOptions, ThemeOptions } from "@mui/material";
-import { blue, green, orange, grey } from "./colors";
+import { blue, grey } from "./colors";
 import "@fontsource/inter/300.css";
 import "@fontsource/inter/400.css";
 import "@fontsource/inter/500.css";
+import "@fontsource/inter/600.css";
 import "@fontsource/inter/700.css";
 
 const palette: PaletteOptions = {
@@ -12,14 +13,6 @@ const palette: PaletteOptions = {
    primary: {
       main: blue.main,
       light: blue.light,
-   },
-   success: {
-      main: green.main,
-      light: green.light,
-   },
-   warning: {
-      main: orange.main,
-      light: orange.light,
    },
    grey,
    text: {
@@ -36,7 +29,7 @@ export const theme: ThemeOptions = {
    // Палитра
    palette,
    // Типография
-   typography: {
+   typography: { 
       fontFamily: '"Inter", "Arial", sans-serif',
       // Заголовки
       headline: {
@@ -49,6 +42,7 @@ export const theme: ThemeOptions = {
          fontFamily: '"Inter", "Arial", sans-serif',
          fontWeight: 600,
          fontSize: "20px",
+         margin: "0 !important",
       },
       title: {
          fontFamily: '"Inter", "Arial", sans-serif',
@@ -172,7 +166,7 @@ export const theme: ThemeOptions = {
                borderRadius: "12px",
                fontSize: "16px",
                padding: "0 12px",
-					boxShadow: 'none'
+               boxShadow: "none",
             },
          },
       },
@@ -193,10 +187,18 @@ export const theme: ThemeOptions = {
             // arrow
          },
       },
+      // MuiList: {
+      //    defaultProps: {
+      //       style: {
+      //          background: 'green',
+      //          borderRadius: 'none'
+      //       }
+      //    }
+      // },
       MuiMenuItem: {
          defaultProps: {
             style: {
-               // background: 'red'
+               background: "red",
             },
          },
       },
@@ -205,6 +207,7 @@ export const theme: ThemeOptions = {
          defaultProps: {
             style: {
                border: "none",
+               background: "none",
             },
             InputLabelProps: {
                style: {
@@ -213,12 +216,23 @@ export const theme: ThemeOptions = {
             },
             InputProps: {
                style: {
-                  color: "red",
+                  // color: "red",
                   background: palette.grey?.[100],
                   borderRadius: "16px",
                   // padding: '10px 12px'
                },
             },
+         },
+      },
+      MuiOutlinedInput: {
+         defaultProps: {
+            style: {
+               background: palette.grey?.[100],
+               border: "none !important",
+               borderWidth: "0",
+               outline: "none",
+            },
+            notched: false,
          },
       },
       // Date
@@ -227,7 +241,7 @@ export const theme: ThemeOptions = {
             style: {
                // background: 'red',
                // color: 'red',
-               background: palette.grey?.[100],
+               // background: palette.grey?.[100],
                borderRadius: "16px",
             },
          },
