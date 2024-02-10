@@ -50,7 +50,7 @@ const Header = () => {
 							gap: '2px',
 						}}
 					>
-						<Button
+						<Box
 							sx={{
 								display: 'flex',
 								alignItems: 'center',
@@ -70,7 +70,7 @@ const Header = () => {
 							>
 								Данила Кашин
 							</Typography>
-						</Button>
+						</Box>
 					</Box>
 				</Box>
 
@@ -102,28 +102,6 @@ const Header = () => {
 					расходы за сегодня
 				</Typography>
 			</Box>
-			{/* Выпадающее меню настроек */}
-			<SwipeableDrawer
-				anchor="bottom"
-				hysteresis={1}
-				open={openSetting}
-				onOpen={() => setOpenSetting(true)}
-				onClose={() => setOpenSetting(false)}
-				SwipeAreaProps={<Button>123</Button>}
-			>
-				<Box
-					sx={{
-						background: '#E4E8EB',
-						display: 'flex',
-						justifyContent: 'center',
-						p: '44px 0 6px 0',
-					}}
-					onClick={() => setOpenSetting(false)}
-				>
-					<Puller />
-				</Box>
-				<Setting title={false} />
-			</SwipeableDrawer>
 		</>
 	);
 };
