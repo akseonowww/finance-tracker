@@ -165,7 +165,7 @@ export const theme: ThemeOptions = {
                padding: "0 12px",
                boxShadow: "none",
             },
-         },
+         }
       },
       // Select
       MuiSelect: {
@@ -272,12 +272,29 @@ export const theme: ThemeOptions = {
                props: { variant: "min" },
                style: {
                   padding: "16px 0 4px",
-                  boxShadow:
-                     " 0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24, 39, 75, 0.1)",
+                  // boxShadow:
+                     // " 0px 6px 14px -6px rgba(24, 39, 75, 0.12), 0px 10px 32px -4px rgba(24, 39, 75, 0.1)",
                   borderRadius: "16px",
                },
             },
          ],
       },
+
+      // Выпадающие настройки
+      MuiDrawer: {
+         defaultProps: {
+            style: {
+               background: 'none'
+            }
+         }
+         // variants: [
+         //    {
+         //       props: {variant: 'permanent'},
+         //       style: {
+
+         //       }
+         //    }
+         // ]
+      }
    },
 };

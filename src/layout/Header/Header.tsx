@@ -50,13 +50,14 @@ const Header = () => {
 							gap: '2px',
 						}}
 					>
-						<Button
+						<Box
 							sx={{
 								display: 'flex',
 								alignItems: 'center',
 								justifyContent: 'left',
 								gap: '8px',
 								borderRadius: '100px',
+								cursor: 'pointer'
 							}}
 
 							onClick={() => setOpenSetting(!openSetting)}
@@ -70,7 +71,7 @@ const Header = () => {
 							>
 								Данила Кашин
 							</Typography>
-						</Button>
+						</Box>
 					</Box>
 				</Box>
 
@@ -102,6 +103,7 @@ const Header = () => {
 					расходы за сегодня
 				</Typography>
 			</Box>
+
 			{/* Выпадающее меню настроек */}
 			<SwipeableDrawer
 				anchor="bottom"
@@ -113,7 +115,7 @@ const Header = () => {
 			>
 				<Box
 					sx={{
-						background: '#E4E8EB',
+						// background: '#E4E8EB',
 						display: 'flex',
 						justifyContent: 'center',
 						p: '44px 0 6px 0',

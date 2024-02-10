@@ -22,10 +22,9 @@ const Setting = ({ title = true }) => {
    return (
       <Container
          sx={{
-            background: "#E4E8EB",
+            // background: "#E4E8EB",
             minHeight: "100vh",
             p: "0 0 0 0",
-            // borderRadius: '22px 22px 0 0',
          }}
       >
          {title && (

@@ -15,6 +15,10 @@ export const orange:color = {
    main: "#F78F08",
    light: "#FBE6CB",
 };
+export const red:color = {
+   main: "#F02A2A",
+   light: "#FDD8D8",
+};
 export const grey = {
    50: "#F6F8F9",
    100: "#E4E8EB",
