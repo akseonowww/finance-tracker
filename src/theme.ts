@@ -195,7 +195,7 @@ export const theme: ThemeOptions = {
       MuiMenuItem: {
          defaultProps: {
             style: {
-               background: "red",
+               // background: "red",
             },
          },
       },
