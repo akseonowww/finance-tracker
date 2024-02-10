@@ -14,6 +14,7 @@ import {
 import { BsFolder } from "react-icons/bs";
 import { currencyFormat } from "../../App";
 import { blue, green, grey, orange } from "../../colors";
+import dayjs from "dayjs";
 
 interface expense {
    name: string,
@@ -97,7 +98,8 @@ const Statistic = () => {
          >
             <Typography variant="headlineMini">Статистика</Typography>
             <Typography variant="footnote" color={grey[400]}>
-               1 нед. июля
+               {/* 1 нед. июля */}
+               {dayjs(new Date()).format('MMMM [(1 нед.)]')}
             </Typography>
          </Box>
          {miniChart(data)}
