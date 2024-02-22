@@ -1,43 +1,43 @@
 export const data = {
 	user: {
-		name: 'Danila',
-		fullname: 'Kashen',
+		name: 'Шурик',
+		fullname: null,
 		avatar: '/',
-		auth_service: 'Google Account',
+		auth_service: 'Google Аккаунт',
 	},
 	group: [
 		{
 			id: 1,
-			name: 'Everyday',
+			name: 'Повседневные',
 			color: 'blue',
 		},
 		{
 			id: 2,
-			name: 'Apartment',
+			name: 'Квартира',
 			color: 'green',
 		},
 		{
 			id: 3,
-			name: 'Large',
+			name: 'Крупные',
 			color: 'orange',
 		},
 	],
 	category: [
 		{
 			id: 1,
-			name: 'Eating out',
+			name: 'Еда вне дома',
 			icon: 'BsCupHot',
 			group: 1,
 		},
 		{
 			id: 2,
-			name: 'All for Home',
+			name: 'Всё для дома',
 			icon: 'BsLamp',
 			group: 2,
 		},
 		{
 			id: 3,
-			name: 'Gadgets',
+			name: 'Гаджеты',
 			icon: 'BsUsbSymbol',
 			group: 3,
 		},
@@ -51,7 +51,7 @@ export const data = {
 		{
 			category: 1,
 			cash: 8000,
-			description: 'Buy milk',
+			description: 'Купил молоко',
 		},
 		{
 			category: 2,
@@ -66,7 +66,7 @@ export const data = {
 		{
 			category: 3,
 			cash: 900000,
-			description: 'Buy car',
+			description: 'Приобрёл машину',
 		},
 	],
 };

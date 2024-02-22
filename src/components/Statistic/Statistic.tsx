@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { BsFolder } from "react-icons/bs";
 import { currencyFormat } from "../../App";
-import { blue, green, grey, orange } from "../../colors";
+import { blue, green, grey, orange } from "../../theme/colors";
 import dayjs from "dayjs";
 
 interface expense {

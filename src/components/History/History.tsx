@@ -9,7 +9,7 @@ import {
 } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { currencyFormat } from "../../App";
-import { grey } from "../../colors";
+import { grey } from "../../theme/colors";
 import historyStore from "../../store/HistoryStore";
 import categoryStore from "../../store/CategoryStore";
 import dayjs from "dayjs";

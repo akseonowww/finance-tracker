@@ -13,7 +13,7 @@ import { BsBell, BsSearch } from 'react-icons/bs';
 import Setting from '../../pages/Settings/Settings';
 import avatar from '../../assets/avatar.jpg';
 import { styled } from '@mui/material/styles';
-import { grey } from '../../colors';
+import { grey } from '../../theme/colors';
 
 const Puller = styled(Box)(({ theme }) => ({
 	width: 120,

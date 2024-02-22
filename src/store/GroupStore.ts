@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { blue, green, orange } from "../colors";
+import { blue, green, orange } from "../theme/colors";
 
 export interface Group {
    id: number;
