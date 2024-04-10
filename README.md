@@ -1,4 +1,4 @@
-# Finance Trtracker
+# Finance Tracker
 
 1. История расходов
 2. Категории и группы
